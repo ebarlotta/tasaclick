@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComitentesTable extends Migration
+class CreateTasadorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateComitentesTable extends Migration
      */
     public function up()
     {
-        Schema::create('comitentes', function (Blueprint $table) {
+        Schema::create('tasadors', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->double('cuit');
+            $table->string('dni');
+            $table->string('cuit');
             $table->string('domicilio');
+            $table->string('cp');
+            $table->double('matricula');
             $table->string('departamento');
             $table->string('provincia');
-            $table->string('pais');
-            $table->string('cp');
             $table->string('telefono');
             $table->string('email');
             $table->timestamps();
@@ -35,6 +36,6 @@ class CreateComitentesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comitentes');
+        Schema::dropIfExists('tasadors');
     }
 }

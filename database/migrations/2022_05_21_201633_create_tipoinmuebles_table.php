@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFinsTable extends Migration
+class CreateTipoinmueblesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateFinsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fins', function (Blueprint $table) {
+        Schema::create('tipoinmuebles', function (Blueprint $table) {
             $table->id();
-            $table->string('descripcion');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreateFinsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fins');
+        Schema::dropIfExists('tipoinmuebles');
     }
 }
