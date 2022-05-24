@@ -25,9 +25,14 @@ class CreatePropiedadsTable extends Migration
             $table->string('nroplano');
             $table->string('provincia');
             $table->string('departamento');
-            $table->string('cp');
-            $table->unsignedBigInteger('tipoinmuebles_id');
+        
+            $table->unsignedBigInteger('antecedente_id');
+            $table->unsignedBigInteger('tipoinmueble_id');
             $table->unsignedBigInteger('zona_id');
+
+            $table->foreign('antecedente_id')->references('id')->on('antecedentes');
+            $table->foreign('tipoinmueble_id')->references('id')->on('tipoinmuebles');
+            $table->foreign('zona_id')->references('id')->on('zonas');
 
             $table->timestamps();
         });

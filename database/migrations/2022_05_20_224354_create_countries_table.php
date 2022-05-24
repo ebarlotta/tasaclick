@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTipoinmueblesTable extends Migration
+class CreateCountriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateTipoinmueblesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipoinmuebles', function (Blueprint $table) {
+        Schema::create('countries', function (Blueprint $table) {
             $table->id();
-            $table->string('descripcion');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreateTipoinmueblesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipoinmuebles');
+        Schema::dropIfExists('countries');
     }
 }

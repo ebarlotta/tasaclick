@@ -19,12 +19,14 @@ class CreateTasadorsTable extends Migration
             $table->string('dni');
             $table->string('cuit');
             $table->string('domicilio');
-            $table->string('cp');
             $table->double('matricula');
-            $table->string('departamento');
-            $table->string('provincia');
             $table->string('telefono');
             $table->string('email');
+            $table->unsignedBigInteger('provincia_id');
+            $table->foreign('provincia_id')->references('id')->on('provincias');
+
+            $table->unsignedBigInteger('departamento_id');
+            $table->foreign('departamento_id')->references('id')->on('departamentos');
             $table->timestamps();
         });
     }
