@@ -25,6 +25,7 @@ class CreateTasadorsTable extends Migration
             $table->string('provincia');
             $table->string('telefono');
             $table->string('email');
+            $table->string('foto');
             $table->timestamps();
         });
     }
