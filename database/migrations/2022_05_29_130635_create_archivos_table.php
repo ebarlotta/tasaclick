@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCountriesTable extends Migration
+class CreateArchivosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class CreateCountriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create('archivos', function (Blueprint $table) {
             $table->id();
+            $table->string('url');
+
+            $table->unsignedBigInteger('propiedad_id');
+
+            $table->foreign('propiedad_id')->references('id')->on('propiedads');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateCountriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('countries');
+        Schema::dropIfExists('archivos');
     }
 }

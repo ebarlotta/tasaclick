@@ -17,6 +17,11 @@ class CreateDepartamentosTable extends Migration
             $table->id();
             $table->integer('cp');
             $table->string('descripcion');
+
+            $table->unsignedBigInteger('provincia_id');
+
+            $table->foreign('provincia_id')->references('id')->on('provincias');
+
             $table->timestamps();
         });
     }

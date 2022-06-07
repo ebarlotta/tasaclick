@@ -15,15 +15,16 @@ class CreateAntecedentesTable extends Migration
     {
         Schema::create('antecedentes', function (Blueprint $table) {
             $table->id();
-            $table->string('zona');
             $table->string('ubicacion');
             $table->double('precio');
             $table->double('superficie');
             $table->double('frente');
             $table->double('fondo');
-            $table->double('valorunitario');
 
+            $table->unsignedBigInteger('zona_id');
             $table->unsignedBigInteger('departamento_id');
+
+            $table->foreign('zona_id')->references('id')->on('zonas');
             $table->foreign('departamento_id')->references('id')->on('departamentos');
 
             $table->timestamps();

@@ -20,9 +20,7 @@ class CreateComitentesTable extends Migration
             $table->string('domicilio');
             $table->string('telefono');
             $table->string('email');
-            
-            $table->unsignedBigInteger('provincia_id');
-            $table->foreign('provincia_id')->references('id')->on('provincias');
+            $table->double('dni');
 
             $table->unsignedBigInteger('departamento_id');
             $table->foreign('departamento_id')->references('id')->on('departamentos');

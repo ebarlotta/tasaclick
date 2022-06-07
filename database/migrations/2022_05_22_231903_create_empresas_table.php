@@ -20,6 +20,8 @@ class CreateEmpresasTable extends Migration
             $table->string('direccion');
             $table->string('telefono');
             $table->string('email');
+            $table->string('CBU');
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
