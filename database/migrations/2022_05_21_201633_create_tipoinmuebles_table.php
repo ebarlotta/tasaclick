@@ -15,6 +15,7 @@ class CreateTipoinmueblesTable extends Migration
     {
         Schema::create('tipoinmuebles', function (Blueprint $table) {
             $table->id();
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
