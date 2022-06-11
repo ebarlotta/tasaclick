@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DepartamentoSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class DepartamentoSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('departamentos')->insert(['cp'=>'5570','descripcion'=>'San Martín','provincia_id'=>'1']);
     }
 }

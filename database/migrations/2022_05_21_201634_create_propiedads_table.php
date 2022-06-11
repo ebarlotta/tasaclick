@@ -27,13 +27,13 @@ class CreatePropiedadsTable extends Migration
             // REVISAR
             // $table->unsignedBigInteger('poseedor_id');
             $table->unsignedBigInteger('departamento_id');
-            $table->unsignedBigInteger('antecedente_id');
+            // $table->unsignedBigInteger('antecedente_id');
             $table->unsignedBigInteger('tipoinmueble_id');
             $table->unsignedBigInteger('zona_id');
             // REVISAR
             // $table->foreign('poseedor_id')->references('id')->on('poseedors');
             $table->foreign('departamento_id')->references('id')->on('departamentos');
-            $table->foreign('antecedente_id')->references('id')->on('antecedentes');
+            // $table->foreign('antecedente_id')->references('id')->on('antecedentes');
             $table->foreign('tipoinmueble_id')->references('id')->on('tipoinmuebles');
             $table->foreign('zona_id')->references('id')->on('zonas');
 
