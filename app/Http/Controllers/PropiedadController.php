@@ -39,7 +39,7 @@ class PropiedadController extends Controller
         $departamentos = Departamento::all();
         $provincias = Provincia::all();
         $tipoinmuebles = TipoInmueble::all();
-        
+        dd($zonas);
         return view('propiedades.antecedentes',compact('provincias','zonas','departamentos','tipoinmuebles'));
     }
 

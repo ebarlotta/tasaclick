@@ -2,83 +2,75 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAntecedentesRequest;
-use App\Http\Requests\UpdateAntecedentesRequest;
+use Illuminate\Http\Request;
+// use App\Http\Controllers\Antecendentes as A;
 use App\Models\Antecedentes;
+use App\Models\Departamento;
+use App\Models\Zona;
 
 class AntecedentesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public $mensaje='';
+
     public function index()
     {
-        //
+        $departamentos = Departamento::all();
+        $zonas = Zona::all();
+        $antecedentes = Antecedentes::all();
+        // $this->mensaje = '';
+        return view('antecedentes.index',compact('departamentos','zonas','antecedentes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreAntecedentesRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreAntecedentesRequest $request)
+    public function store(Request $request)
     {
-        //
+    
+        $request->validate([
+            'ubicacion' => 'required',
+            'precio' => 'required|integer',
+            'superficie' => 'required|integer',
+            'frente' => 'required|integer',
+            'fondo' => 'required|integer',
+            'zona_id' => 'required',
+            'departamento_id' => 'required',
+        ]);
+        // PARA HACER Agregar fecha del antecedente
+
+        // 
+        // dd($request);
+        $Antecedente = new Antecedentes;
+        $Antecedente->ubicacion = $request->ubicacion;
+        $Antecedente->precio = $request->precio;
+        $Antecedente->superficie = $request->superficie;
+        $Antecedente->frente = $request->frente;
+        $Antecedente->fondo = $request->fondo;
+        $Antecedente->zona_id = $request->zona_id;
+        $Antecedente->departamento_id = $request->departamento_id;
+        $Antecedente->save();
+        // $antecedentes = Antecedentes::all();
+        return redirect()->route('antecedentes.index')->with('mensaje','Alta Exitosa!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Antecedentes  $antecedentes
-     * @return \Illuminate\Http\Response
-     */
     public function show(Antecedentes $antecedentes)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Antecedentes  $antecedentes
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Antecedentes $antecedentes)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateAntecedentesRequest  $request
-     * @param  \App\Models\Antecedentes  $antecedentes
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateAntecedentesRequest $request, Antecedentes $antecedentes)
+    public function update(Antecedentes $request, Antecedentes $antecedentes)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Antecedentes  $antecedentes
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Antecedentes $antecedentes)
     {
         //

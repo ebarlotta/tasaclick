@@ -47,7 +47,7 @@
                               </select>
                            </b></p>
                        </div>
-                       <a class="float-right" href="{{route('antecedentes.index')}}">
+                       <a class="float-right" href="#">
                         <button type="button" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg">Nueva Antecedente</button>
                      </a>
                     </div>
