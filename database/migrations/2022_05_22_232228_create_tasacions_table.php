@@ -16,9 +16,10 @@ class CreateTasacionsTable extends Migration
         Schema::create('tasacions', function (Blueprint $table) {
             $table->id();
             $table->date('fechatasacion');
+            $table->double('preciofinal')->nullable();
 
-            // $table->unsignedBigInteger('tasacion_id');
-            // $table->foreign('tasacion_id')->references('id')->on('propiedadtasacions');
+            $table->unsignedBigInteger('propiedad_id');
+            $table->foreign('propiedad_id')->references('id')->on('propiedad');
 
             $table->unsignedBigInteger('tasador_id');
             $table->foreign('tasador_id')->references('id')->on('tasadors');

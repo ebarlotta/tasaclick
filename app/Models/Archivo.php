@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Archivo extends Model
 {
     use HasFactory;
+
+    protected $fillable=[
+        'url',
+        'propiedad_id',
+    ];
+
+    
 }

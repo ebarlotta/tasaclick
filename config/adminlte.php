@@ -339,6 +339,11 @@ return [
             'url'        => '#',
         ],
         [
+            'text'       => 'Tasaciones',
+            'icon_color' => 'green',
+            'url'        => 'tasaciones',
+        ],
+        [
             'text'    => 'TASACIONES',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
@@ -355,7 +360,7 @@ return [
                 [
                     'text'       => 'Propiedades',
                     'icon_color' => 'green',
-                    'url'        => '#',
+                    'url'        => 'propiedades',
                 ],
                 [
                     'text'       => 'Terrenos',

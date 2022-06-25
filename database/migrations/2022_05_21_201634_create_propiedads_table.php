@@ -19,7 +19,7 @@ class CreatePropiedadsTable extends Migration
             $table->string('padron');
             $table->string('padronmunicipal');
             $table->string('titularregistral');
-            $table->double('registrodePropiedad');
+            $table->double('registrodepropiedad');
             $table->double('nomenclaturacatastral');
             $table->string('nroplano');
             $table->string('ubicaciongps');
