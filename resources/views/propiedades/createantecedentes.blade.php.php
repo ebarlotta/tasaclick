@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <h1>Propiedades</h1>
+                      <img id="icono" src="{{ asset ('/images/assets/icono.png')}}"><h1>Propiedades</h1>
                         <div class="card-body justify-left">
                            <p>Domicilio: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
                            <p>Padrón Territorial: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
