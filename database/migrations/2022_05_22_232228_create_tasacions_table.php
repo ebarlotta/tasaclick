@@ -19,7 +19,7 @@ class CreateTasacionsTable extends Migration
             $table->double('preciofinal')->nullable();
 
             $table->unsignedBigInteger('propiedad_id');
-            $table->foreign('propiedad_id')->references('id')->on('propiedad');
+            $table->foreign('propiedad_id')->references('id')->on('propiedads');
 
             $table->unsignedBigInteger('tasador_id');
             $table->foreign('tasador_id')->references('id')->on('tasadors');

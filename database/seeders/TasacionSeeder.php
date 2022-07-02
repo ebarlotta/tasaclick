@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
 class TasacionSeeder extends Seeder
 {
     /**
@@ -13,6 +12,6 @@ class TasacionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }

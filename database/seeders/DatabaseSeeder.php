@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call([ZonaSeeder::class]);
         $this->call([TipoinmuebleSeeder::class]);
 
+        \App\Models\Comitente::factory(10)->create();
     }
 }

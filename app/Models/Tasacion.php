@@ -13,11 +13,12 @@ class Tasacion extends Model
 
     protected $fillable=[
         'fechatasacion',
+        'preciofinal',
+        'propiedad_id',
         'tasador_id',
         'empresa_id',
         'fin_id',
         'comitente_id',
-        'propiedad_id',
     ];
 
     public function fines()

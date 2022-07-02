@@ -6,9 +6,9 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                     <img src="images/assets/tasaclikjpg.jpg">
-                     <img id="images" src="/images/assets/tasaclik1jpg.jpg">  
-                     <img src= "images/assets/tasaclik1jpg.jpg">
+                     <img src="{{ asset('images/assets/tasaclikjpg.jpg')}}" width="20" height="20">
+                     {{-- <img id="images" src="/images/assets/tasaclik1jpg.jpg">   --}}
+                     {{-- <img src= "images/assets/tasaclik1jpg.jpg"> --}}
                         <h1>Propiedades</h1>
                         <div class="card-body justify-left">
                            <p>Domicilio: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
