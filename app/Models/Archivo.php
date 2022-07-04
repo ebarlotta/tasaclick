@@ -13,6 +13,4 @@ class Archivo extends Model
         'url',
         'propiedad_id',
     ];
-
-    
 }

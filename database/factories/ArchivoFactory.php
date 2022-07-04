@@ -3,8 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Propiedad;
 
-class FinFactory extends Factory
+class ArchivoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,7 +15,8 @@ class FinFactory extends Factory
     public function definition()
     {
         return [
-            'descripcion'=>$this->faker->word(),
+            'url'=>'images/assets/tasaclick.jpg',
+            'propiedad_id'=>Propiedad::inRandomOrder()->value('id')
         ];
     }
 }

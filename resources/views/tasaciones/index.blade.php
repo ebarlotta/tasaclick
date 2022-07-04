@@ -3,13 +3,13 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
                         <h1>Tasaciones</h1>
                         <div class="card-body justify-left">
                            <table class="table table-striped" style="border: 1">
-                              <tr>
+                              <tr style="text-align: center">
                                  <td>Plano</td>
                                  <td>Dirección</td>
                                  <td>Departamento</td>
@@ -17,20 +17,31 @@
                                  <td>Fecha</td>
                                  <td>Opciones</td>
                               </tr>
+                              @if($tasaciones)
                               @foreach ($tasaciones as $tasacion)
-                                 <td style="vertical-align: middle;"><img src="{{ asset('images/planos/'.$tasacion->propiedad[0]->imagenplano[0]->url) }}" style="width: 70px; height: 70px; border-radius: 20px"></td>
-                                 <td style="vertical-align: middle;">{{ $tasacion->propiedad[0]->domicilio }}</td>
-
-                                 <td style="vertical-align: middle;">{{ $tasacion->propiedad[0]->departamento[0]->descripcion }}</td>
-                                 {{-- <td>{{ $tasacion->fines[0]->descripcion }}</td> --}}
-                                 <td style="vertical-align: middle;">{{ '$' . number_format($tasacion->preciofinal,2, ',', '.') }}</td>
-                                 <td style="vertical-align: middle;">{{ $tasacion->fechatasacion }}</td>
-                                 <td style="vertical-align: middle;">
-                                    <input type="button" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg" value="Descargar">
-                                    <input type="button" class="card-text bg-warning text-center rounded-md px-3 mr-1 shadow-lg" value="Modificar">
-                                    <input type="button" class="card-text bg-danger text-center rounded-md px-3 mr-1 shadow-lg" value="Eliminar">
-                                 </td>
-                              @endforeach
+                              <tr>
+                                    <td style="vertical-align: middle;">
+                                        {{-- <img src="{{ asset('images/planos/'.$tasacion->propiedad[0]->imagenplano[0]->url) }}" style="width: 70px; height: 70px; border-radius: 20px">                                             --}}
+                                        <img src="{{ asset($tasacion->imagenplano->url) }}" style="width: 70px; height: 70px; border-radius: 20px">                                            
+                                        {{-- @if($tasacion->propiedad[0]->imagenplano[0]->url)
+                                        @else --}}
+                                        
+                                            {{-- <img src="{{ asset('images/assets/sinimagen.jpg') }}" style="width: 70px; height: 70px; border-radius: 20px"> --}}
+                                        </td>
+                                    </td>
+                                    <td style="vertical-align: middle;">{{ $tasacion->propiedad[0]->domicilio }}</td>
+                                    <td style="vertical-align: middle;">{{ $tasacion->propiedad[0]->departamento[0]->descripcion }}</td> 
+                                    {{-- <td>{{ $tasacion->fines[0]->descripcion }}</td> --}}
+                                    <td style="vertical-align: middle;">{{ '$' . number_format($tasacion->preciofinal,2, ',', '.') }}</td>
+                                    <td style="vertical-align: middle;">{{ substr($tasacion->fechatasacion,5,2).'-'.substr($tasacion->fechatasacion,8,2).'-'.substr($tasacion->fechatasacion,0,4) }}</td>
+                                    <td style="vertical-align: middle; text-align: center;">
+                                        <input type="button" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg" value="Descargar">
+                                        <input type="button" class="card-text bg-warning text-center rounded-md px-3 mr-1 shadow-lg" value="Modificar">
+                                        <input type="button" class="card-text bg-danger text-center rounded-md px-3 mr-1 shadow-lg" value="Eliminar">
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endif
                            </table>    
                            <a class="float-right" href="{{ route('propiedades.create') }}">
                               <button type="button" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg">Nueva Tasación</button>
