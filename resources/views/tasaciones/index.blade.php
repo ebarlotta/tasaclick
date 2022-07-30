@@ -21,13 +21,11 @@
                               @foreach ($tasaciones as $tasacion)
                               <tr>
                                     <td style="vertical-align: middle;">
-                                        {{-- <img src="{{ asset('images/planos/'.$tasacion->propiedad[0]->imagenplano[0]->url) }}" style="width: 70px; height: 70px; border-radius: 20px">                                             --}}
-                                        <img src="{{ asset($tasacion->imagenplano->url) }}" style="width: 70px; height: 70px; border-radius: 20px">                                            
-                                        {{-- @if($tasacion->propiedad[0]->imagenplano[0]->url)
-                                        @else --}}
-                                        
-                                            {{-- <img src="{{ asset('images/assets/sinimagen.jpg') }}" style="width: 70px; height: 70px; border-radius: 20px"> --}}
-                                        </td>
+                                        @if($tasacion->imagenplano->url)
+                                            <img src="{{ asset($tasacion->imagenplano->url) }}" style="width: 70px; height: 70px; border-radius: 20px">                                            
+                                        @else
+                                            <img src="{{ asset('images/assets/sinimagen.jpg') }}" style="width: 70px; height: 70px; border-radius: 20px">
+                                        @endif
                                     </td>
                                     <td style="vertical-align: middle;">{{ $tasacion->propiedad[0]->domicilio }}</td>
                                     <td style="vertical-align: middle;">{{ $tasacion->propiedad[0]->departamento[0]->descripcion }}</td> 
