@@ -318,7 +318,7 @@ return [
         [
             'text'       => 'Tipo Inmuebles',
             'icon_color' => 'green',
-            'url'        => '#',
+            'url'        => 'tipoinmuebles',
         ],
         ['header' => 'ADMINISTRACION'],[
             'text'       => 'Comitentes',
