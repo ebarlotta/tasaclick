@@ -313,7 +313,7 @@ return [
         [
             'text'       => 'Empresas',
             'icon_color' => 'green',
-            'url'        => '#',
+            'url'        => 'empresas',
         ],
         [
             'text'       => 'Tipo Inmuebles',
