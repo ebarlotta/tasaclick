@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h1>Propiedades</h1>
+                        <h1>Datos de la Propiedades a Tasar</h1>
                         <div class="card-body justify-left">
                            <p>Domicilio: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
                            <p>Padrón Territorial: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
@@ -15,6 +15,7 @@
                            <p>Nomenclatura Catastral: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
                            <p>Número de Plano: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
                            <p>Ubicación GPS: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
+                           <p>Superficie del terreno: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
                            <p>Provincia: <b>
                               <select>
                                  <option>-</option>
