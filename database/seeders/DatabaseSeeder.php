@@ -31,5 +31,6 @@ class DatabaseSeeder extends Seeder
 
 
         \App\Models\Tasacion::factory(10)->create();
+        \App\Models\Archivo::factory(10)->create();
     }
 }
