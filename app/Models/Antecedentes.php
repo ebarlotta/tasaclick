@@ -11,7 +11,7 @@ class Antecedentes extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'ubicacion',
         'precio',
         'superficie',
@@ -20,6 +20,16 @@ class Antecedentes extends Model
         'zona_id',
         'departamento_id',
 
+        'coeficiente_esquinas',
+        'coeficiente_formas',
+        'coeficiente_topografias',
+        'coeficiente_pavimentoyservicios',
+        'coeficiente_ubicaciones',
+        'coeficiente_ofertas',
+        'coeficiente_formapagos',
+        'coeficiente_fuenteinformantes',
+        'coeficiente_actualizaciones',
+
     ];
 
     // Relación uno a muchos
@@ -27,11 +37,9 @@ class Antecedentes extends Model
     public function zonas()
     {
         return $this->hasOne(Zona::class, 'id', 'zona_id');
-        
     }
     public function departamentos()
     {
         return $this->hasOne(Departamento::class, 'id', 'departamento_id');
-        
     }
 }

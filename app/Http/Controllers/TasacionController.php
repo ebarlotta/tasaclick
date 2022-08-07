@@ -12,7 +12,7 @@ class TasacionController extends Controller
     public function index()
     {
         $tasaciones = Tasacion::all();
-        // dd($tasaciones);
+        //dd($tasaciones);
         return view('tasaciones.index', compact('tasaciones'));
     }
 

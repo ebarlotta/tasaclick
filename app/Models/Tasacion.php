@@ -44,7 +44,7 @@ class Tasacion extends Model
 
     public function imagenplano()
     {
-        return $this->hasOne(Archivo::class, 'propiedad_id', 'id');
+        return $this->hasOne(Archivo::class, 'id','propiedad_id');
         // return $this->hasMany(Archivo::class, 'propiedad_id', 'id');
         
     }

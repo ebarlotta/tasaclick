@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call([DepartamentoSeeder::class]);
         $this->call([ZonaSeeder::class]);
         $this->call([TipoinmuebleSeeder::class]);
+        $this->call([CoeficientesSeeder::class]);
 
         // Empresa::factory()->count(5)->create() comando para ejecutar en Tinker
 

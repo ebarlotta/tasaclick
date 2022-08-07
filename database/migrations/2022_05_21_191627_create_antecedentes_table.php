@@ -15,7 +15,7 @@ class CreateAntecedentesTable extends Migration
     {
         Schema::create('antecedentes', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha');
+            // $table->date('fecha');
             $table->string('direccion');
             $table->double('precio');
             $table->double('superficie');
@@ -25,6 +25,16 @@ class CreateAntecedentesTable extends Migration
 
             $table->unsignedBigInteger('zona_id');
             $table->unsignedBigInteger('departamento_id');
+
+            $table->integer('coeficiente_esquinas');
+            $table->integer('coeficiente_formas');
+            $table->integer('coeficiente_topografias');
+            $table->integer('coeficiente_pavimentoyservicios');
+            $table->integer('coeficiente_ubicaciones');
+            $table->integer('coeficiente_ofertas');
+            $table->integer('coeficiente_formapagos');
+            $table->integer('coeficiente_fuenteinformantes');
+            $table->integer('coeficiente_actualizaciones');
 
             $table->foreign('zona_id')->references('id')->on('zonas');
             $table->foreign('departamento_id')->references('id')->on('departamentos');
