@@ -29,6 +29,7 @@ class Antecedentes extends Model
         'coeficiente_formapagos',
         'coeficiente_fuenteinformantes',
         'coeficiente_actualizaciones',
+        'precionormalizado',
 
     ];
 

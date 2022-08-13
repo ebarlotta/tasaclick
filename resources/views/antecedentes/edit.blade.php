@@ -11,7 +11,7 @@
             @endif --}}
             <form action="{{ route('antecedentes.store') }}" method="POST">
               @csrf
-              <h1>Antecedentes {{ $coeficiente }}</h1>
+              <h1>Antecedentes </h1>
               {{-- <a class="float-right" href="{{ route('antecedentes.store') }}"> --}}
               <button type="submit" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg">Agregar</button>
               {{-- </a> --}}

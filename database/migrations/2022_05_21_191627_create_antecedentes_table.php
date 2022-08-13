@@ -35,6 +35,8 @@ class CreateAntecedentesTable extends Migration
             $table->integer('coeficiente_formapagos');
             $table->integer('coeficiente_fuenteinformantes');
             $table->integer('coeficiente_actualizaciones');
+            $table->double('precionormalizado');
+            $table->double('coeficientenormalizado');
 
             $table->foreign('zona_id')->references('id')->on('zonas');
             $table->foreign('departamento_id')->references('id')->on('departamentos');
