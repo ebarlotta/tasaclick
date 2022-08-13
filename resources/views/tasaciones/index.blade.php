@@ -33,7 +33,7 @@
                                     <td style="vertical-align: middle;">{{ '$' . number_format($tasacion->preciofinal,2, ',', '.') }}</td>
                                     <td style="vertical-align: middle;">{{ substr($tasacion->fechatasacion,5,2).'-'.substr($tasacion->fechatasacion,8,2).'-'.substr($tasacion->fechatasacion,0,4) }}</td>
                                     <td style="vertical-align: middle; text-align: center;">
-                                        <input type="button" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg" value="Descargar">
+                                        <input type="button" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg rounded-lg" value="Descargar">
                                         <input type="button" class="card-text bg-warning text-center rounded-md px-3 mr-1 shadow-lg" value="Modificar">
                                         <input type="button" class="card-text bg-danger text-center rounded-md px-3 mr-1 shadow-lg" value="Eliminar">
                                     </td>

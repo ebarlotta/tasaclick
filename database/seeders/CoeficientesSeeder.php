@@ -14,6 +14,17 @@ class CoeficientesSeeder extends Seeder
      */
     public function run()
     {
+        // DB::table('coeficientesfrentefondo')->insert(['columna'=>'6','fila'=>'30','coeficiente'=>'0.85']);
+        // DB::table('coeficientesfrentefondo')->insert(['columna'=>'6','fila'=>'32','coeficiente'=>'0.85']);
+        // DB::table('coeficientesfrentefondo')->insert(['columna'=>'6','fila'=>'34','coeficiente'=>'0.85']);
+        // DB::table('coeficientesfrentefondo')->insert(['columna'=>'6','fila'=>'36','coeficiente'=>'0.85']);
+        // DB::table('coeficientesfrentefondo')->insert(['columna'=>'6','fila'=>'38','coeficiente'=>'0.85']);
+        // DB::table('coeficientesfrentefondo')->insert(['columna'=>'6','fila'=>'30','coeficiente'=>'0.85']);
+        // DB::table('coeficientesfrentefondo')->insert(['columna'=>'6','fila'=>'30','coeficiente'=>'0.85']);
+        // DB::table('coeficientesfrentefondo')->insert(['columna'=>'6','fila'=>'30','coeficiente'=>'0.85']);
+        // DB::table('coeficientesfrentefondo')->insert(['columna'=>'8','fila'=>'30','coeficiente'=>'0.85']);
+
+        DB::table('coeficientes')->insert(['tabladecoeficiente'=>'CoeficienteDeEsquina','descripcion'=>'-','coeficiente'=>'1']); //Ninguno
         DB::table('coeficientes')->insert(['tabladecoeficiente'=>'CoeficienteDeEsquina','descripcion'=>'Zona comercial','coeficiente'=>'1.2']);
         DB::table('coeficientes')->insert(['tabladecoeficiente'=>'CoeficienteDeEsquina','descripcion'=>'Comercial y Residencial','coeficiente'=>'1.15']);
         DB::table('coeficientes')->insert(['tabladecoeficiente'=>'CoeficienteDeEsquina','descripcion'=>'Residencial','coeficiente'=>'1.1']);

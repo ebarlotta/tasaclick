@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePropiedadRequest;
 use App\Http\Requests\UpdatePropiedadRequest;
 use App\Models\Propiedad;
+use App\Models\Coeficientes;
 use App\Models\Departamento;
 use App\Models\Provincia;
 use App\Models\Tipoinmueble;
@@ -16,9 +17,14 @@ class PropiedadController extends Controller
     public $departamentos;
     public $provincias;
     public $tipoinmuebles;
+    public $coeficiente;
 
     public function index()
     {
+
+        
+
+
         return view('propiedades.index');
     }
 
@@ -30,7 +36,18 @@ class PropiedadController extends Controller
         $provincias = Provincia::all();
         $tipoinmuebles = TipoInmueble::all();
         
-        return view('propiedades.create',compact('provincias','zonas','departamentos','tipoinmuebles'));
+        $coeficiente_esquinas            = Coeficientes::where('tabladecoeficiente','CoeficienteDeEsquina')->get();
+        $coeficiente_formas              = Coeficientes::where('tabladecoeficiente','Coeficiente De Forma')->get();
+        $coeficiente_topografias         = Coeficientes::where('tabladecoeficiente','Coeficiente de Topografía')->get();
+        $coeficiente_pavimentoyservicios = Coeficientes::where('tabladecoeficiente','Coeficiente de Pavimento y Sevicio Público')->get();
+        $coeficiente_ubicaciones         = Coeficientes::where('tabladecoeficiente','Coeficiente de Ubicación')->get();
+        $coeficiente_ofertas             = Coeficientes::where('tabladecoeficiente','Coeficiente de Oferta')->get();
+        $coeficiente_formapagos          = Coeficientes::where('tabladecoeficiente','Coeficiente de Forma de Pago')->get();
+        $coeficiente_fuenteinformantes   = Coeficientes::where('tabladecoeficiente','Coeficiente de fuente informante')->get();
+        $coeficiente_actualizaciones     = Coeficientes::where('tabladecoeficiente','Coeficiente de Actualización')->get();
+
+
+        return view('propiedades.create',compact('departamentos','zonas','tipoinmuebles','provincias','coeficiente_esquinas','coeficiente_formas','coeficiente_topografias','coeficiente_pavimentoyservicios','coeficiente_ubicaciones','coeficiente_ofertas','coeficiente_formapagos','coeficiente_fuenteinformantes','coeficiente_actualizaciones'));
     }
 
     public function antecedentes()
