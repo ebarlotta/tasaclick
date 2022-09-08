@@ -15,8 +15,23 @@
                            <p>Nomenclatura Catastral: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
                            <p>Número de Plano: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
                            <p>Ubicación GPS: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
-                           <p>Frente:<input name="frente" value="" class="rounded-md pl-2"></p>
-                          <p>Fondo:<input name="fondo" value="" class="rounded-md pl-2"></p>
+                           <p>Frente:
+                            <select name="frentes" wire:model="frentes">
+                              <option value="1">-</option>
+                              @foreach ($frentes as $frente)
+                                <option value="{{ $frente->id}}">{{ $frente->columna}}</option>    
+                              @endforeach
+                            </select>
+                         {{-- <input name="frente" value="" class="rounded-md pl-2"></p> --}}
+                          <p>Fondo:
+                            <select name="fondos" wire:model="fondos">
+                              <option value="1">-</option>
+                              @foreach ($fondos as $fondo)
+                                <option value="{{ $fondo->id}}">{{ $fondo->fila}}</option>    
+                              @endforeach
+                            </select>
+                  
+                            {{-- <input name="fondo" value="" class="rounded-md pl-2"></p> --}}
                           <p>Superficie del terreno: <b><input disabled name="descripcion" value="" class="rounded-md pl-2"></b></p>
                            <p>Provincia: <b>
                               <select>

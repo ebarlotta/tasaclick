@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCoeficientesFrentefondoTable extends Migration
+class CreateCoeficientesfrentefondosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCoeficientesFrentefondoTable extends Migration
      */
     public function up()
     {
-        Schema::create('coeficientesfrentefondo', function (Blueprint $table) {
+        Schema::create('coeficientesfrentefondos', function (Blueprint $table) {
             $table->id();
             $table->string('columna');
             $table->string('fila');
@@ -29,6 +29,6 @@ class CreateCoeficientesFrentefondoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coeficientes_frentefondos');
+        Schema::dropIfExists('coeficientesfrentefondos');
     }
 }

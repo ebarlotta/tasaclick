@@ -6,10 +6,12 @@ use App\Http\Requests\StorePropiedadRequest;
 use App\Http\Requests\UpdatePropiedadRequest;
 use App\Models\Propiedad;
 use App\Models\Coeficientes;
+use App\Models\coeficientesfrentefondo as CoeficienteFrenteFondo;
 use App\Models\Departamento;
 use App\Models\Provincia;
 use App\Models\Tipoinmueble;
 use App\Models\Zona;
+
 
 class PropiedadController extends Controller
 {
@@ -18,13 +20,11 @@ class PropiedadController extends Controller
     public $provincias;
     public $tipoinmuebles;
     public $coeficiente;
+    public $frentesctrl=0;
+    public $fondosctrl=0;
 
     public function index()
     {
-
-        
-
-
         return view('propiedades.index');
     }
 
@@ -45,9 +45,11 @@ class PropiedadController extends Controller
         $coeficiente_formapagos          = Coeficientes::where('tabladecoeficiente','Coeficiente de Forma de Pago')->get();
         $coeficiente_fuenteinformantes   = Coeficientes::where('tabladecoeficiente','Coeficiente de fuente informante')->get();
         $coeficiente_actualizaciones     = Coeficientes::where('tabladecoeficiente','Coeficiente de Actualización')->get();
+        $frentes     = CoeficienteFrenteFondo::select('columna')->distinct()->get();
+        $fondos     = CoeficienteFrenteFondo::select('fila')->distinct()->get();
+        
 
-
-        return view('propiedades.create',compact('departamentos','zonas','tipoinmuebles','provincias','coeficiente_esquinas','coeficiente_formas','coeficiente_topografias','coeficiente_pavimentoyservicios','coeficiente_ubicaciones','coeficiente_ofertas','coeficiente_formapagos','coeficiente_fuenteinformantes','coeficiente_actualizaciones'));
+        return view('propiedades.create',compact('departamentos','zonas','tipoinmuebles','provincias','coeficiente_esquinas','coeficiente_formas','coeficiente_topografias','coeficiente_pavimentoyservicios','coeficiente_ubicaciones','coeficiente_ofertas','coeficiente_formapagos','coeficiente_fuenteinformantes','coeficiente_actualizaciones','frentes','fondos'));
     }
 
     public function antecedentes()
