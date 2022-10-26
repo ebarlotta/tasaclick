@@ -36,5 +36,26 @@ class Propiedad extends Model
         // return $this->hasMany(Archivo::class, 'propiedad_id', 'id');
         
     }
+
+    public function provincia()
+    {
+        return $this->hasOne(Provincia::class, 'id','departamento_id');
+        // return $this->hasMany(Archivo::class, 'propiedad_id', 'id');
+        
+    }
+
+    public function inmueble()
+    {
+        return $this->hasOne(Tipoinmueble::class, 'id','tipoinmueble_id');
+        // return $this->hasMany(Archivo::class, 'propiedad_id', 'id');
+        
+    }
+
+    public function zona()
+    {
+        return $this->hasOne(Zona::class, 'id','zona_id');
+        // return $this->hasMany(Archivo::class, 'propiedad_id', 'id');
+        
+    }
 }
 

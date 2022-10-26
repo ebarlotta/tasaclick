@@ -48,4 +48,6 @@ class Tasacion extends Model
         // return $this->hasMany(Archivo::class, 'propiedad_id', 'id');
         
     }
+
+    
 }

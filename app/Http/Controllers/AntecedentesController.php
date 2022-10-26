@@ -32,10 +32,25 @@ class AntecedentesController extends Controller
         $coeficiente_fuenteinformantes   = Coeficientes::where('tabladecoeficiente','Coeficiente de fuente informante')->get();
         $coeficiente_actualizaciones     = Coeficientes::where('tabladecoeficiente','Coeficiente de Actualización')->get();
         $coeficiente = $this->coeficiente;
+
+        $cont=0;
+        $Acumulado=0;
+        foreach($antecedentes as $antecedente) {
+            $Acumulado=$Acumulado + $antecedente->precio/$antecedente->superficie*$antecedente->coeficientenormalizado;
+            $cont++;
+        }
+        if($cont) {
+            $promediopreciovalorcorregido = $Acumulado/$cont;
+        } else
+        {
+            $promediopreciovalorcorregido = 0;
+        }
+            
+        // $promediopreciovalorcorregido = Antecedentes::avg('precio')/Antecedentes::avg('superficie')*Antecedentes::avg('coeficientenormalizado');
         // $coeficiente = '';
         // $this->mensaje = '';
         // return view('antecedentes.index',compact(['departamentos'=>$departamentos,'zonas'=>$zonas,'antecedentes'=>$antecedentes,'coeficiente_esquinas'=>$coeficiente_esquinas,'coeficiente_formas'=>$coeficiente_formas,'coeficiente_topografias'=>$coeficiente_topografias,'coeficiente_pavimentoyservicios'=>$coeficiente_pavimentoyservicios,'coeficiente_ubicaciones'=>$coeficiente_ubicaciones,'coeficiente_ofertas'=>$coeficiente_ofertas,'coeficiente_formapagos'=>$coeficiente_formapagos,'coeficiente_fuenteinformantes'=>$coeficiente_fuenteinformantes,'coeficiente_actualizaciones'=>$coeficiente_actualizaciones,'mensaje'=>$this->mensaje]));
-        return view('antecedentes.index',compact('departamentos','zonas','antecedentes','coeficiente_esquinas','coeficiente_formas','coeficiente_topografias','coeficiente_pavimentoyservicios','coeficiente_ubicaciones','coeficiente_ofertas','coeficiente_formapagos','coeficiente_fuenteinformantes','coeficiente_actualizaciones','coeficiente'));
+        return view('antecedentes.index',compact('departamentos','zonas','antecedentes','coeficiente_esquinas','coeficiente_formas','coeficiente_topografias','coeficiente_pavimentoyservicios','coeficiente_ubicaciones','coeficiente_ofertas','coeficiente_formapagos','coeficiente_fuenteinformantes','coeficiente_actualizaciones','coeficiente','promediopreciovalorcorregido','Acumulado'));
     }
 
     public function create()
@@ -45,7 +60,7 @@ class AntecedentesController extends Controller
 
     public function store(Request $request)
     {
-        
+        dd('01');
         // $this->calcular_coeficiente();
         // $request->validate([
         //     'direccion' => 'required',
@@ -68,6 +83,7 @@ class AntecedentesController extends Controller
         //     'coeficiente_actualizacion '=>'required',
         // ]);
         // PARA HACER Agregar fecha del antecedente
+        // PARA HACER Controlar Promedio ponderdo de antecedentes!
 //dd($request);
         
         // dd($request);
@@ -106,12 +122,12 @@ class AntecedentesController extends Controller
         return redirect()->route('antecedentes.index')->with('mensaje','Alta Exitosa!');
     }
 
-    public function edit(Antecedentes $antecedentes)
+    public function edit(Antecedentes $antecedentes, $id)
     {
         $departamentos = Departamento::all();
         $zonas = Zona::all();
-        $antecedentes = Antecedentes::all();
-
+        $antecedentes = Antecedentes::find($id);
+        //dd($antecedentes);
         //Coeficientes
         $coeficiente_esquinas            = Coeficientes::where('tabladecoeficiente','CoeficienteDeEsquina')->get();
         $coeficiente_formas              = Coeficientes::where('tabladecoeficiente','Coeficiente De Forma')->get();
@@ -128,7 +144,7 @@ class AntecedentesController extends Controller
 
     public function update(Antecedentes $request, Antecedentes $antecedentes)
     {
-        //
+        dd('todavia no esta programado');
     }
 
     public function destroy(Antecedentes $antecedentes)
@@ -136,7 +152,11 @@ class AntecedentesController extends Controller
         //
     }
 
-    public function calcular_coeficiente(Antecedentes $A) {        
+    public function calcular_coeficiente(Antecedentes $A) {   
+
+        //Controla si los elementos han sido seleccionados y tienen algún valor
+        if( $A->coeficiente_esquinas<>0 and $A->coeficiente_formas<>0 and $A->coeficiente_topografias<>0 and $A->coeficiente_pavimentoyservicios<>0 and $A->coeficiente_ubicaciones<>0 and $A->coeficiente_ofertas<>0 and $A->coeficiente_formapagos<>0 and $A->coeficiente_fuenteinformantes<>0 and $A->coeficiente_actualizaciones<>0 ) {
+        
         $coeficiente_esquinas            = Coeficientes::find($A->coeficiente_esquinas);
         $coeficiente_formas              = Coeficientes::find($A->coeficiente_formas);
         $coeficiente_topografias         = Coeficientes::find($A->coeficiente_topografias);
@@ -146,8 +166,9 @@ class AntecedentesController extends Controller
         $coeficiente_formapagos          = Coeficientes::find($A->coeficiente_formapagos);
         $coeficiente_fuenteinformantes   = Coeficientes::find($A->coeficiente_fuenteinformantes);
         $coeficiente_actualizaciones     = Coeficientes::find($A->coeficiente_actualizaciones);
+
         return $coeficiente_esquinas->coeficiente * $coeficiente_formas->coeficiente * $coeficiente_topografias->coeficiente * $coeficiente_pavimentoyservicios->coeficiente * $coeficiente_ubicaciones->coeficiente * $coeficiente_ofertas->coeficiente * $coeficiente_formapagos->coeficiente * $coeficiente_fuenteinformantes->coeficiente * $coeficiente_actualizaciones->coeficiente;
-        
+        }
         // return view('antecedentes.index',compact(['coeficiente'=>$this->coeficiente]));
     }
 }

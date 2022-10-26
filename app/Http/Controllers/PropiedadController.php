@@ -45,11 +45,12 @@ class PropiedadController extends Controller
         $coeficiente_formapagos          = Coeficientes::where('tabladecoeficiente','Coeficiente de Forma de Pago')->get();
         $coeficiente_fuenteinformantes   = Coeficientes::where('tabladecoeficiente','Coeficiente de fuente informante')->get();
         $coeficiente_actualizaciones     = Coeficientes::where('tabladecoeficiente','Coeficiente de Actualización')->get();
+        $coeficiente_zonals              = Coeficientes::where('tabladecoeficiente','Coeficiente Zonal')->get();
         $frentes     = CoeficienteFrenteFondo::select('columna')->distinct()->get();
         $fondos     = CoeficienteFrenteFondo::select('fila')->distinct()->get();
         
 
-        return view('propiedades.create',compact('departamentos','zonas','tipoinmuebles','provincias','coeficiente_esquinas','coeficiente_formas','coeficiente_topografias','coeficiente_pavimentoyservicios','coeficiente_ubicaciones','coeficiente_ofertas','coeficiente_formapagos','coeficiente_fuenteinformantes','coeficiente_actualizaciones','frentes','fondos'));
+        return view('propiedades.create',compact('departamentos','zonas','tipoinmuebles','provincias','coeficiente_esquinas','coeficiente_formas','coeficiente_topografias','coeficiente_pavimentoyservicios','coeficiente_ubicaciones','coeficiente_ofertas','coeficiente_formapagos','coeficiente_fuenteinformantes','coeficiente_actualizaciones','coeficiente_zonals','frentes','fondos'));
     }
 
     public function antecedentes()
@@ -90,5 +91,10 @@ class PropiedadController extends Controller
     public function destroy(Propiedad $propiedad)
     {
         //
+    }
+
+    public function caclular()
+    {
+        return view('propiedades.index');
     }
 }

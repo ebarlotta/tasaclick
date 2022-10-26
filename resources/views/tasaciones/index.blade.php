@@ -6,7 +6,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
                         <h1>Tasaciones</h1>
+                        <a class="float-right" href="{{ route('propiedades.create') }}">
+                            <button type="button" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg">Nueva Tasación</button>
+                         </a>
+                        </div>
                         <div class="card-body justify-left">
                            <table class="table table-striped" style="border: 1">
                               <tr style="text-align: center">
@@ -34,16 +39,17 @@
                                     <td style="vertical-align: middle;">{{ substr($tasacion->fechatasacion,5,2).'-'.substr($tasacion->fechatasacion,8,2).'-'.substr($tasacion->fechatasacion,0,4) }}</td>
                                     <td style="vertical-align: middle; text-align: center;">
                                         <input type="button" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg rounded-lg" value="Descargar">
-                                        <input type="button" class="card-text bg-warning text-center rounded-md px-3 mr-1 shadow-lg" value="Modificar">
-                                        <input type="button" class="card-text bg-danger text-center rounded-md px-3 mr-1 shadow-lg" value="Eliminar">
+                                        <a class="float-right" href="{{ route('tasaciones.destroy',$tasacion->propiedad[0]->id) }}">
+                                            <input type="button" class="card-text bg-danger text-center rounded-md px-3 mr-1 shadow-lg" value="Eliminar">
+                                        </a>
+                                        <a class="float-right" href="{{ route('tasaciones.edit',$tasacion->propiedad[0]->id) }}">
+                                            <input type="button" class="card-text bg-warning text-center rounded-md px-3 mr-1 shadow-lg" value="Modificar">
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach
                             @endif
                            </table>    
-                           <a class="float-right" href="{{ route('propiedades.create') }}">
-                              <button type="button" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg">Nueva Tasación</button>
-                           </a>
                        </div>
                     </div>
                 </div>

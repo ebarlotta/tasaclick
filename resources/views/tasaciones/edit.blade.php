@@ -5,75 +5,91 @@
     <div class="row justify-content-center">
       <div class="col-md-12">
         <div style="display: flex; justify-content: space-between;">
-          <h1 class="ml-5">Datos de la Propiedades a Tasar</h1>
+          <h1 class="ml-5">Datos Tasación a editar</h1>
           <div style="display: flex; align-items: center; justify-content: center;">
             <a href="{{ route('antecedentes.index') }}">
               <button type="button" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg">Nuevo Antecedente</button>
             </a>
-            {{-- <a href="{{ route('antecedentes.index') }}">
-              <button type="button" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg">Agregar Propiedad</button>
-            </a> --}}
+            <a href="{{ route('antecedentes.index') }}">
+              {{-- <button type="button" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg">Agregar Propiedad</button> --}}
+            </a>
           </div>
         </div>
         <div class="d-flex flex-row col-12">
           <div class="card-body col-md-12">
             <div class="card-body justify-left">
-              <p>Domicilio: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
-              <p>Padrón Territorial: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
-              <p>Padrón Municipal: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
-              <p>Titular Registral: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
-              <p>Nomenclatura Catastral: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
-              <p>Número de Plano: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
-              <p>Ubicación GPS: <b><input name="descripcion" value="" class="rounded-md pl-2"></b></p>
-              <p>Frente según mensura:
+              <p>Domicilio: <b><input name="descripcion" value="{{ $tasacion->propiedad[0]->domicilio }}" class="rounded-md pl-2" disabled></b></p>
+              <p>Padrón Territorial: <b><input name="descripcion" value="{{ $tasacion->propiedad[0]->padron }}" class="rounded-md pl-2" disabled></b></p>
+              <p>Padrón Municipal: <b><input name="descripcion" value="{{ $tasacion->propiedad[0]->padronmunicipal }}" class="rounded-md pl-2" disabled></b></p>
+              <p>Titular Registral: <b><input name="descripcion" value="{{ $tasacion->propiedad[0]->titularregistral}}" class="rounded-md pl-2" disabled></b></p>
+              <p>Nomenclatura Catastral: <b><input name="descripcion" value="{{ $tasacion->propiedad[0]->nomenclaturacatastral}}" class="rounded-md pl-2" disabled></b></p>
+              <p>Número de Plano: <b><input name="descripcion" value="{{ $tasacion->propiedad[0]->nroplano }}" class="rounded-md pl-2" disabled></b></p>
+              <p>Ubicación GPS: <b><input name="descripcion" value="{{ $tasacion->propiedad[0]->ubicaciongps }}" class="rounded-md pl-2" disabled></b></p>
+              {{-- <p>Frente según mensura:
                 <input class="rounded-md pl-2 col-md-3" type="text" value="">
                 <select name="frentes" wire:model="frentes" class="pl-2">
                   <option value="0">-</option>
                   @foreach ($frentes as $frente)
                     <option value="{{ $frente->id }}">{{ $frente->columna }}</option>
                   @endforeach
-                </select>
+                </select> --}}
                 {{-- <input name="frente" value="" class="rounded-md pl-2"></p> --}}
-              <p>Fondo según mensura:
+              {{-- <p>Fondo según mensura:
                 <input class="rounded-md pl-2 col-md-3" type="text" value="">
                 <select name="fondos" wire:model="fondos" wire:click="calcular" class="pl-2">
                   <option value="0">-</option>
                   @foreach ($fondos as $fondo)
                     <option value="{{ $fondo->id }}">{{ $fondo->fila }}</option>
                   @endforeach
-                </select>
+                </select> --}}
 
                 {{-- <input name="fondo" value="" class="rounded-md pl-2"></p> --}}
               <p>Superficie del terreno: <b><input disabled name="descripcion" value="" class="rounded-md pl-2"></b>
               </p>
               Provincia: <b>
-                  <select class="pl-2">
+                  <select class="pl-2" disabled>
                     <option value="0">-</option>
                     @foreach ($provincias as $provincia)
+                     @if($provincia->id === $tasacion->propiedad[0]->departamento[0]->provincia_id)
+                      <option value="{{ $provincia->id }}" selected>{{ $provincia->descripcion }}</option>
+                     @else
                       <option value="{{ $provincia->id }}">{{ $provincia->descripcion }}</option>
+                     @endif
                     @endforeach
                   </select></b>
               Departamento: <b>
-                  <select class="col-md-3 pl-2">
+                  <select class="col-md-3 pl-2" disabled>
                     <option value="0">-</option>
                     @foreach ($departamentos as $departamento)
-                      <option value="{{ $departamento->id }}">{{ $departamento->descripcion }}</option>
+                     @if($departamento->id === $tasacion->propiedad[0]->departamento[0]->id)
+                      <option value="{{ $departamento->id }}" selected>{{ $departamento->descripcion }}</option>
+                     @else
+                     <option value="{{ $departamento->id }}">{{ $departamento->descripcion }}</option>
+                     @endif
                     @endforeach
                   </select></b></p>
               </b></p>
               Tipo Inmueble: <b>
-                  <select class="pl-2">
+                  <select class="pl-2" disabled>
                     <option value="0">-</option>
                     @foreach ($tipoinmuebles as $tipoinmueble)
-                      <option value="{{ $tipoinmueble->id }}">{{ $tipoinmueble->descripcion }}</option>
+                     @if($tipoinmueble->id === $tasacion->propiedad[0]->inmueble->id)
+                        <option value="{{ $tipoinmueble->id }}" selected>{{ $tipoinmueble->descripcion }}</option>
+                     @else
+                        <option value="{{ $tipoinmueble->id }}">{{ $tipoinmueble->descripcion }}</option>
+                     @endif
                     @endforeach
                   </select></b>
               
               Zona: <b>
-                  <select class="pl-2">
+                  <select class="pl-2" disabled>
                     <option value="0">-</option>
                     @foreach ($zonas as $zona)
-                      <option value="{{ $zona->id }}">{{ $zona->descripcion }}</option>
+                     @if($zona->id === $tasacion->propiedad[0]->zona->id)
+                        <option value="{{ $zona->id }}" selected>{{ $zona->descripcion }}</option>
+                     @else
+                        <option value="{{ $zona->id }}">{{ $zona->descripcion }}</option>
+                     @endif
                     @endforeach
                   </select>
                 </b></p>
@@ -85,7 +101,7 @@
           </div>
           <div class="card-body justify-left col-md-12">
             <br>
-            <p>Valor unitario del m<sup>2</sup> de según antecedentes seleccionados: <input type="text" size="10" disabled></p>
+            <p>Valor unitario del m<sup>2</sup> de según antecedentes seleccionados: <input type="text" size="10" value="{{ $tasacion->precioantecedente }}" disabled></p>
 
             <p><br><b>Coeficientes Correctivos</b></p>
             <p>Coeficiente de Esquina:
@@ -220,7 +236,7 @@
           
             <div class="mt-3">
               <p>Calculo del valor unitario corregido del m<sup>2</sup> de tierra: <input type="text"></p>
-              <p>Valor final del terreno: <input type="text"></p>
+              <p>Valor final del terreno: <input type="text" value="{{ $tasacion->preciofinal }}"></p>
             </div>
             <div style="display: flex; justify-content: space-between;">
               <button type="button" class="col-6 card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg">Generar Informe</button>

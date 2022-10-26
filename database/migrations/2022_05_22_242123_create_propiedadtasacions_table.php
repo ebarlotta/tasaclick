@@ -22,6 +22,18 @@ class CreatePropiedadtasacionsTable extends Migration
             $table->unsignedBigInteger('propiedad_id');
             $table->foreign('propiedad_id')->references('id')->on('propiedads');
 
+            $table->integer('coeficiente_esquinas');
+            $table->integer('coeficiente_formas');
+            $table->integer('coeficiente_topografias');
+            $table->integer('coeficiente_pavimentoyservicios');
+            $table->integer('coeficiente_ubicaciones');
+            $table->integer('coeficiente_ofertas');
+            $table->integer('coeficiente_formapagos');
+            $table->integer('coeficiente_fuenteinformantes');
+            $table->integer('coeficiente_actualizaciones');
+            $table->double('precionormalizado');
+            $table->double('coeficientenormalizado');
+
             $table->timestamps();
         });
     }
