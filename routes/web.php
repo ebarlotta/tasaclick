@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropiedadController;
 use App\Http\Controllers\AntecedentesController;
 use App\Http\Controllers\TasacionController;
+use App\Http\Livewire\PropiedadesComponent;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +29,9 @@ Route::resource('/propiedades', PropiedadController::class);
 // Route::resource('/propiedades/antecedentes', PropiedadController::class);
 Route::resource('/antecedentes', AntecedentesController::class);
 Route::resource('/tasaciones', TasacionController::class);
+
+Route::get('/propiedades2', PropiedadesComponent::class)->name('propiedades2');
+
 
 
 
