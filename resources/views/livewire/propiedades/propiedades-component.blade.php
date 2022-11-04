@@ -1,111 +1,16 @@
 {{-- @extends('layouts.plantilla') --}}
 <div>
     <div class="col-md-4">
-        <button wire:click="modal1()">Click</button>
-        @if ($fondo1)
-            @include('livewire.propiedadescreate')
-        @endif
         <div class="card card-widget widget-user-2 shadow-sm">
-
             <div class="widget-user-header bg-warning mb-3">
                 <div class="widget-user-image">
-                    <img class="img-circle elevation-2" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
+                    <img class="img-circle elevation-2" src="{{ asset('images/assets/avatar.jpg') }}" alt="User Avatar" style="float: left; height: 65px; width: 65px; border-radius: 50%;">
                 </div>
 
                 <h3 class="widget-user-username">Nadia Carmichael</h3>
                 <h5 class="widget-user-desc">Lead Developer</h5>
             </div>
-            {{-- <div class="card-footer p-0"> --}}
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Quick Example</h3>
-                </div>
-
-
-
-                <input wire:model="frente" type="text" >
-                <input wire:model="fondo" type="text" >
-                <input type="text" value="{{ $frente* $fondo}}">
-
-
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-    Launch Default Modal
-    </button>
-    <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-        <h4 class="modal-title">Default Modal</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">×</span>
-        </button>
-        </div>
-        <div class="modal-body">
-        <p>One fine body…
-
-
-
-        </p>
-        </div>
-        <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-        </div>
-        
-        </div>
-        
-        </div>
-
-
-
-
-
-                <form>
-                    <div class="card-body">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
-                                data-target="#propiedad1"><i class="far fa-copy"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">
-                                    <h5>Datos de Iniciales de la Propiedad</h5>
-                                </span>
-                                {{-- <span class="info-box-number">13,648</span> --}}
-                            </div>
-                        </div>
     
-                        <div class="info-box">
-                            <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
-                                data-target="#propiedad2"><i class="far fa-copy"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">
-                                    <h5>Ubicación de la Propiedad</h5>
-                                </span>
-                                {{-- <span class="info-box-number">13,648</span> --}}
-                            </div>
-                        </div>
-                        
-                        <div class="info-box">
-                            <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
-                                data-target="#propiedad3"><i class="far fa-copy"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">
-                                    <h5>Coeficientes</h5>
-                                </span>
-                                {{-- <span class="info-box-number">13,648</span> --}}
-                            </div>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div>
-                    </div>
-
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
 
 
             <div class="card card-info" data-card-widget="collapse">
@@ -123,28 +28,32 @@
                 <div class="card-body" style="display: none;">
 
                     <div class="info-box">
-                        <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
-                            data-target="#propiedad1"><i class="far fa-copy"></i></span>
+                        {{-- <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
+                            data-target="#propiedad1"><i class="far fa-copy"></i></span> --}}
+                            <span class="info-box-icon bg-success btn btn-default" wire:click="openclose1()">
+                                <i class="far fa-copy"></i>
+                            </span>
                         <div class="info-box-content">
                             <span class="info-box-text">
                                 <h5>Datos de Iniciales de la Propiedad</h5>
                             </span>
-                            {{-- <span class="info-box-number">13,648</span> --}}
                         </div>
                     </div>
 
                     <div class="info-box">
-                        <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
-                            data-target="#propiedad2"><i class="far fa-copy"></i></span>
+                        {{-- <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
+                            data-target="#propiedad2"><i class="far fa-copy"></i></span> --}}
+                            <span class="info-box-icon bg-success btn btn-default" wire:click="openclose2()">
+                                <i class="far fa-copy"></i>
+                            </span>
                         <div class="info-box-content">
                             <span class="info-box-text">
                                 <h5>Ubicación de la Propiedad</h5>
-                                <button wire:click="modal1()">Click</button>
-                                @if ($fondo1)
+                                {{-- <button wire:click="modal1()">Click</button> --}}
+                                {{-- @if ($fondo1)
                                     @include('livewire.propiedadescreate')
-                                @endif
+                                @endif --}}
                             </span>
-                            {{-- <span class="info-box-number">13,648</span> --}}
                         </div>
                     </div>
 
@@ -155,7 +64,6 @@
                             <span class="info-box-text">
                                 <h5>Coeficientes</h5>
                             </span>
-                            {{-- <span class="info-box-number">13,648</span> --}}
                         </div>
                     </div>
                 </div>
@@ -182,7 +90,6 @@
                             <span class="info-box-text">
                                 <h5>Agregar Antecedente</h5>
                             </span>
-                            {{-- <span class="info-box-number">13,648</span> --}}
                         </div>
 
                     </div>
@@ -193,7 +100,6 @@
                             <span class="info-box-text">
                                 <h5>Datos de Homogenización</h5>
                             </span>
-                            {{-- <span class="info-box-number">13,648</span> --}}
                         </div>
 
                     </div>
@@ -208,180 +114,16 @@
                         <h3>$ 13,648</h3>
                     </span>
                 </div>
-
-                <div class="form-group row">
-                    <label for="inputtext3" class="col-sm-6 col-form-label">Fondo</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" id="inputtext3" placeholder="Fondo" wire:model="fondo">
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- MODAL DATOS PROPIEDAD1  -->
-        <!-- =====================  -->
-        <div class="modal fade" id="propiedad1" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Datos de la Propiedad</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">×</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" class="form-horizontal">
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Domicilio</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="inputtext3"
-                                        placeholder="Domicilio">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Padrón Territorial</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="inputtext3"
-                                        placeholder="Padrón Territorial">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Padrón Municipal</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="inputtext3"
-                                        placeholder="Padrón Municipal">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Titular Registral</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="inputtext3"
-                                        placeholder="Titular Registral">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Nomenclatura Catastral</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="inputtext3"
-                                        placeholder="Nomenclatura Catastral">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Número de Plano</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="inputtext3"
-                                        placeholder="Número de Plano">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Guardar</button>
-                    </div>
-
-                    {{-- @include('livewire.propiedadescreate') --}}
-                </div>
             </div>
         </div>
 
-        <!-- MODAL DATOS PROPIEDAD 2 -->
-        <!-- =====================  -->
-        <div class="modal" id="propiedad2" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Datos Ubicación de la Propiedad</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">×</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" class="form-horizontal">
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Provincia</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($provincias as $provincia)
-                                            <option value="{{ $provincia->id }}">{{ $provincia->descripcion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Departamento</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($departamentos as $departamento)
-                                            <option value="{{ $departamento->id }}">{{ $departamento->descripcion }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Tipo de Inmueble</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($tipoinmuebles as $tipoinmueble)
-                                            <option value="{{ $tipoinmueble->id }}">{{ $tipoinmueble->descripcion }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Zona</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($zonas as $zona)
-                                            <option value="{{ $zona->id }}">{{ $zona->descripcion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Ubicación GPS</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="inputtext3"
-                                        placeholder="Ubicación GPS">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Frente</label>
-                                <div class="col-sm-6">
-                                    <input wire:model="frente" type="text" class="form-control" name="frente" placeholder="Frente" >
-                                    {{ $frente}}
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Fondo</label>
-                                <div class="col-sm-6">
-                                    <input wire:model="fondo" type="text" class="form-control" name="fondo" placeholder="Fondo">
-                                        {{ $fondo }}
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Superficie del terreno</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="inputtext3"
-                                        placeholder="Superficie del terreno" value="{{ $frente * $fondo}}" disabled>
-                                    <input type="button" value="Calcular">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Guardar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @if ($isModal1Open)
+            @include('livewire.propiedades.modals.propiedadesmodal1')
+        @endif
+
+        @if ($isModal2Open)
+            @include('livewire.propiedades.modals.propiedadesmodal2')
+        @endif
 
         <!-- MODAL DATOS PROPIEDAD 3 -->
         <!-- =====================  -->
@@ -458,6 +200,71 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Oferta</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" placeholder="Provincia">
+                                        <option value="1">-</option>
+                                        @foreach ($coeficiente_ofertas as $coeficiente_oferta)
+                                            <option value="{{ $coeficiente_oferta->id }}">
+                                                {{ $coeficiente_oferta->descripcion }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Oferta</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" placeholder="Provincia">
+                                        <option value="1">-</option>
+                                        @foreach ($coeficiente_ofertas as $coeficiente_oferta)
+                                            <option value="{{ $coeficiente_oferta->id }}">
+                                                {{ $coeficiente_oferta->descripcion }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Oferta</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" placeholder="Provincia">
+                                        <option value="1">-</option>
+                                        @foreach ($coeficiente_ofertas as $coeficiente_oferta)
+                                            <option value="{{ $coeficiente_oferta->id }}">
+                                                {{ $coeficiente_oferta->descripcion }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Oferta</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" placeholder="Provincia">
+                                        <option value="1">-</option>
+                                        @foreach ($coeficiente_ofertas as $coeficiente_oferta)
+                                            <option value="{{ $coeficiente_oferta->id }}">
+                                                {{ $coeficiente_oferta->descripcion }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Oferta</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" placeholder="Provincia">
+                                        <option value="1">-</option>
+                                        @foreach ($coeficiente_ofertas as $coeficiente_oferta)
+                                            <option value="{{ $coeficiente_oferta->id }}">
+                                                {{ $coeficiente_oferta->descripcion }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="form-group row">
                                 <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Oferta</label>
                                 <div class="col-sm-6">

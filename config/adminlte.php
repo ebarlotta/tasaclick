@@ -304,41 +304,53 @@ return [
         //         ],
         //     ],
         // ],
-        ['header' => 'CONFIGURACIONES'],
-        [
-            'text'       => 'Usuarios',
-            'icon_color' => 'green',
-            'url'        => '#',
-        ],
+        ['header' => 'ADMINISTRACION'],
         [
             'text'       => 'Empresas',
             'icon_color' => 'green',
-            'url'        => 'empresas',
+            'url'        => 'home',
+        ],
+        [
+            'text'       => 'Usuarios',
+            'icon_color' => 'green',
+            'url'        => 'home',
+        ],
+        ['header' => 'CONFIGURACIONES'],
+        [
+            'text'       => 'Comitentes',
+            'icon_color' => 'green',
+            'url'        => 'home',
         ],
         [
             'text'       => 'Tipo Inmuebles',
             'icon_color' => 'green',
-            'url'        => 'tipoinmuebles',
-        ],
-        ['header' => 'ADMINISTRACION'],[
-            'text'       => 'Comitentes',
-            'icon_color' => 'green',
-            'url'        => '#',
+            'url'        => 'home',
         ],
         [
             'text'       => 'Tasadores',
             'icon_color' => 'green',
-            'url'        => '#',
+            'url'        => 'home',
         ],
         [
             'text'       => 'Provincias',
             'icon_color' => 'green',
-            'url'        => '#',
+            'url'        => 'home',
         ],
         [
             'text'       => 'Departamentos',
             'icon_color' => 'green',
+            'url'        => 'home',
+        ],
+        [
+            'text'       => 'Zonas',
+            'icon_color' => 'green',
             'url'        => '#',
+        ],
+        ['header' => 'TASACIONES'],
+        [
+            'text'       => 'Tasaciones',
+            'icon_color' => 'green',
+            'url'        => 'tasaciones',
         ],
         [
             'text'       => 'Tasaciones',
@@ -346,43 +358,37 @@ return [
             'url'        => 'tasaciones',
         ],
         [
-            'text'    => 'TASACIONES',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text'       => 'Antecedentes',
-                    'icon_color' => 'green',
-                    'url'        => '#',
-                ],
-                [
-                    'text'       => 'Zonas',
-                    'icon_color' => 'green',
-                    'url'        => '#',
-                ],
-                [
-                    'text'       => 'Propiedades',
-                    'icon_color' => 'green',
-                    'url'        => 'propiedades',
-                ],
-                [
-                    'text'       => 'Terrenos',
-                    'icon_color' => 'green',
-                    'url'        => '#',
-                ],
-                [
-                    'text'       => 'Mejoras',
-                    'icon_color' => 'yellow',
-                    'url'        => '#',
-                ],
-                [
-                    'text'       => 'Fincas',
-                    'icon_color' => 'cyan',
-                    'url'        => '#',
-                ],
-            ],
+            'text'       => 'Antecedentes',
+            'icon_color' => 'green',
+            'url'        => 'home',
+        ],
+        [
+            'text'       => 'Propiedades',
+            'icon_color' => 'green',
+            'url'        => 'propiedades',
+        ],
+        [
+            'text'       => 'Propiedades 2',
+            'icon_color' => 'green',
+            'url'        => 'propiedades2',
+        ],
+        [
+            'text'       => 'Terrenos',
+            'icon_color' => 'green',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'Mejoras',
+            'icon_color' => 'yellow',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'Fincas',
+            'icon_color' => 'cyan',
+            'url'        => '#',
+        ],
         ],
 
-    ],
 
     /*
     |--------------------------------------------------------------------------

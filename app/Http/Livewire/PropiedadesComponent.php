@@ -26,11 +26,15 @@ class PropiedadesComponent extends Component
     public $coeficiente_formapagos         ;
     public $coeficiente_fuenteinformantes  ;
     public $coeficiente_actualizaciones    ;
+    public $frentecmb=0;
+    public $fondocmb=0;
+    public $superficie=0;
     public $frentes;
-    public $frente;
     public $fondos;
-    public $fondo;
-    public $fondo1;
+    // public $fondo1;
+    public $zona;
+    public $isModal1Open,$isModal2Open;
+
 
     public function render()
     {
@@ -50,10 +54,13 @@ class PropiedadesComponent extends Component
         $this->coeficiente_formapagos          = Coeficientes::where('tabladecoeficiente','Coeficiente de Forma de Pago')->get();
         $this->coeficiente_fuenteinformantes   = Coeficientes::where('tabladecoeficiente','Coeficiente de fuente informante')->get();
         $this->coeficiente_actualizaciones     = Coeficientes::where('tabladecoeficiente','Coeficiente de Actualización')->get();
+        // $this->frentes                         = CoeficienteFrenteFondo::select('id,columna')->distinct('columna')->get();
         $this->frentes                         = CoeficienteFrenteFondo::select('columna')->distinct()->get();
-        $this->fondos                          = CoeficienteFrenteFondo::select('fila')->distinct()->get();
+        // $this->frentes = CoeficienteFrenteFondo::groupby('columna')->get();
 
-        return view('livewire.propiedades-component')->extends('layouts.adminlte');
+        $this->fondos                          = CoeficienteFrenteFondo::select('id','fila')->distinct()->get();
+        // dd($this->frentes);
+        return view('livewire.propiedades.propiedades-component')->extends('layouts.adminlte');
     }
 
     public function calcularsuperficie() {
@@ -61,8 +68,27 @@ class PropiedadesComponent extends Component
         $this->frente = $this->frente * 2;
     }
 
-    public function modal1() {
+    // public function modal1() {
         
-        $this->fondo1=true;
+    //     $this->fondo1=true;
+    // }
+
+    public function openclose1() {
+        
+        $this->isModal1Open = !$this->isModal1Open;
+        // dd($this->isModal2Open);
+        // dd($this->frentecmb * $this->fondocmb);
+    }
+
+    public function openclose2() {
+        
+        $this->isModal2Open = !$this->isModal2Open;
+        // dd($this->isModal2Open);
+        // dd($this->frentecmb * $this->fondocmb);
+    }
+
+    public function imprime() {
+        $this->superficie = $this->fondocmb * $this->frentecmb;
+        // dd($this->fondocmb);
     }
 }
