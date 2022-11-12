@@ -1,6 +1,6 @@
 {{-- @extends('layouts.plantilla') --}}
 <div>
-    <div class="col-md-4">
+    <div class=" col-12">
         <div class="card card-widget widget-user-2 shadow-sm">
             <div class="widget-user-header bg-warning mb-3">
                 <div class="widget-user-image">
@@ -12,8 +12,8 @@
             </div>
     
 
-
-            <div class="card card-info" data-card-widget="collapse">
+            <div class="row">
+            <div class="card card-info col-12 col-md-6" data-card-widget="collapse">
 
                 <div class="card-header">
                     <h3 class="card-title">Datos Iniciales</h3>
@@ -70,7 +70,7 @@
 
             </div>
 
-            <div class="card card-info" data-card-widget="collapse">
+            <div class="card card-info col-12 col-md-6" data-card-widget="collapse">
                 <div class="card-header">
                     <h3 class="card-title">Antecedentes</h3>
                     <span class="float-right badge bg-warning">0 / 2</span>
@@ -106,17 +106,40 @@
                 </div>
             </div>
 
-            <div class="info-box">
-                <span class="info-box-icon bg-success"><i class="far fa-copy"></i></span>
+            </div>
+
+            <div class="row">
+
+            <div class="info-box col-12 col-md-6">
+                <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Cálculo</span>
+                    <span class="info-box-text wrap">Valor unitario del m2 de según antecedentes seleccionados:</span>
+                    <span class="info-box-number">
+                        <h3>$ 13,648</h3>
+                    </span>
+                </div>
+            </div>
+            <div class="info-box col-12 col-md-6">
+                <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text wrap">Calculo del valor unitario corregido del m2 de tierra:</span>
+                    <span class="info-box-number">
+                        <h3>$ 13,648</h3>
+                    </span>
+                </div>
+            </div>
+            <div class="info-box col-12 col-md-6">
+                <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text wrap">Valor final del terreno:</span>
                     <span class="info-box-number">
                         <h3>$ 13,648</h3>
                     </span>
                 </div>
             </div>
         </div>
-
+        </div>
+        
         @if ($isModal1Open)
             @include('livewire.propiedades.modals.propiedadesmodal1')
         @endif
@@ -132,8 +155,9 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Coeficientes</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">×</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                            <span aria-hidden="true">×</span>
+                        </button>
                     </div>
                     <div class="modal-body">
                         <form action="" class="form-horizontal">
@@ -214,7 +238,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Oferta</label>
+                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente Zonal:</label>
                                 <div class="col-sm-6">
                                     <select class="form-control" placeholder="Provincia">
                                         <option value="1">-</option>
@@ -227,46 +251,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Oferta</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($coeficiente_ofertas as $coeficiente_oferta)
-                                            <option value="{{ $coeficiente_oferta->id }}">
-                                                {{ $coeficiente_oferta->descripcion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Oferta</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($coeficiente_ofertas as $coeficiente_oferta)
-                                            <option value="{{ $coeficiente_oferta->id }}">
-                                                {{ $coeficiente_oferta->descripcion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Oferta</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($coeficiente_ofertas as $coeficiente_oferta)
-                                            <option value="{{ $coeficiente_oferta->id }}">
-                                                {{ $coeficiente_oferta->descripcion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Oferta</label>
+                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Rescticciones o afectaciones desvalorizantes</label>
                                 <div class="col-sm-6">
                                     <select class="form-control" placeholder="Provincia">
                                         <option value="1">-</option>
@@ -294,7 +279,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Agregar Antecedente</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span
                                 aria-hidden="true">×</span></button>
                     </div>
                     <div class="modal-body">
@@ -391,12 +376,32 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Coeficientes del Antecedente</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span
                                 aria-hidden="true">×</span></button>
                     </div>
                     <div class="modal-body">
                         <form action="" class="form-horizontal">
-                            <div class="form-group row">
+
+                            <h2>Antecedentes Históricos</h2>
+
+            <table class="table-responsive" border="1">
+              <tbody><tr>
+                <td class="col-1">Fecha</td>
+                <td class="col-1">Departamento</td>
+                <td style="width: 5%;">Zona</td>
+                <td class="col-2">Dirección</td>
+                <td class="col-1">Ubicación</td>
+                <td class="col-1">Precio</td>
+                <td class="col-1">Superficie</td>
+                <td class="col-1">Frente</td>
+                <td class="col-1">Fondo</td>
+                <td class="col-1">Valor Unitario</td>
+                <td class="col-1">Valor Unitario corregido</td>
+                <td class="col-2">Opciones</td>
+              </tr>
+                            
+            </tbody></table>
+                            {{-- <div class="form-group row">
                                 <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Esquina</label>
                                 <div class="col-sm-6">
                                     <select class="form-control" placeholder="Provincia">
@@ -516,8 +521,32 @@
                                         @endforeach
                                     </select>
                                 </div>
-                            </div>
-                            <table border="1" class="table-responsive">
+                            </div> --}}
+                            <h2>Valores Fijados</h2>
+            <table border="1" class="table-responsive">
+              <tr>
+                {{-- <td class="px-2">Id</td> --}}
+                <td class="col-1">Departamento</td>
+                <td style="width: 5%;">Zona</td>
+                <td class="col-2">Dirección</td>
+                <td class="col-1">Ubicación</td>
+                <td class="col-1">Precio</td>
+                <td class="col-1">Superficie</td>
+                <td class="col-1">Frente</td>
+                <td class="col-1">Fondo</td>
+                <td class="col-1">Valor Unitario</td>
+                <td class="col-1">Valor Unitario corregido</td>
+                <td class="col-2">Opciones</td>
+              </tr>
+              <tr>
+                <td colspan="10">No hay datos fijados</td>
+                <td>
+                  <button type="button" class="card-text bg-red text-center rounded-md px-3 mr-1 shadow-lg">Eliminar</button>
+                </td>
+              </tr>
+              
+            </table>
+                            {{-- <table border="1" class="table-responsive">
                                 <tr>
                                     <td class="px-2">Id</td>
                                     <td class="col-2">Departamento</td>
@@ -530,7 +559,7 @@
                                     <td class="col-1">Fondo</td>
                                     <td class="col-1">Valor Unitario</td>
                                     <td class="col-1">Opciones</td>
-                                </tr>
+                                </tr> --}}
                                 {{-- @foreach ($antecedentes as $antecedente)
                                   <tr>
                                     <td class="text-center">{{ $antecedente->id }}</td>
@@ -547,6 +576,18 @@
                                     <td class="text-right"> <a href="{{ route('antecedentes.edit',$antecedente->id) }}"> <button class="btn btn-warning">Modificar</button></a></td>
                                   </tr>
                                 @endforeach --}}
+                            {{-- </table> --}}
+                            <table>
+                                <tr>
+                                    <td colspan="9" class="text-right">Acumulado</td>
+                                    <td class="text-right">$ 100</td>
+                                    {{-- <td class="text-right">${{ number_format($Acumulado, 2) }}</td> --}}
+                                  </tr>
+                                  <tr>
+                                    <td colspan="9" class="text-right">Promedio de precio de valor corregido</td>
+                                    <td class="text-right">$ 200</td>
+                                    {{-- <td class="text-right">${{ number_format($promediopreciovalorcorregido, 2) }}</td> --}}
+                                  </tr>
                             </table>
                         </form>
                     </div>

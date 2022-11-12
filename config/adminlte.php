@@ -344,7 +344,7 @@ return [
         [
             'text'       => 'Zonas',
             'icon_color' => 'green',
-            'url'        => '#',
+            'url'        => 'home',
         ],
         ['header' => 'TASACIONES'],
         [
@@ -353,14 +353,9 @@ return [
             'url'        => 'tasaciones',
         ],
         [
-            'text'       => 'Tasaciones',
-            'icon_color' => 'green',
-            'url'        => 'tasaciones',
-        ],
-        [
             'text'       => 'Antecedentes',
             'icon_color' => 'green',
-            'url'        => 'home',
+            'url'        => 'antecedentes',
         ],
         [
             'text'       => 'Propiedades',
@@ -374,19 +369,19 @@ return [
         ],
         [
             'text'       => 'Terrenos',
-            'icon_color' => 'green',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'Mejoras',
             'icon_color' => 'yellow',
             'url'        => '#',
         ],
-        [
-            'text'       => 'Fincas',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        // [
+        //     'text'       => 'Mejoras',
+        //     'icon_color' => 'yellow',
+        //     'url'        => '#',
+        // ],
+        // [
+        //     'text'       => 'Fincas',
+        //     'icon_color' => 'cyan',
+        //     'url'        => '#',
+        // ],
         ],
 
 

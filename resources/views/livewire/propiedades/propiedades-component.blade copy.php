@@ -206,9 +206,9 @@
             <div class="info-box">
                 <span class="info-box-icon bg-success"><i class="far fa-copy"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Cálculo</span>
+                    <span class="info-box-text">Valor unitario del m2 de según antecedentes seleccionados:</span>
                     <span class="info-box-number">
-                        <h3>$ 13,648</h3>
+                        <h3>$ Valor unitario del m2 de según antecedentes seleccionados:</h3>
                     </span>
                 </div>
 
