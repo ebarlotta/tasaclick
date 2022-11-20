@@ -19,17 +19,19 @@ class CreatePropiedadsTable extends Migration
             $table->string('padron');
             $table->string('padronmunicipal');
             $table->string('titularregistral');
-            $table->double('registrodepropiedad');
+            $table->double('registrodepropiedad')->default(0);
             $table->double('nomenclaturacatastral');
             $table->string('nroplano');
-            $table->string('ubicaciongps');
+            $table->string('ubicaciongps')->default(0);
+            $table->string('frente')->default(0);
+            $table->string('fondo')->default(0);
             
             // REVISAR
             // $table->unsignedBigInteger('poseedor_id');
-            $table->unsignedBigInteger('departamento_id');
+            $table->unsignedBigInteger('departamento_id')->default(1);
             // $table->unsignedBigInteger('antecedente_id');
-            $table->unsignedBigInteger('tipoinmueble_id');
-            $table->unsignedBigInteger('zona_id');
+            $table->unsignedBigInteger('tipoinmueble_id')->default(1);
+            $table->unsignedBigInteger('zona_id')->default(1);
             // REVISAR
             // $table->foreign('poseedor_id')->references('id')->on('poseedors');
             $table->foreign('departamento_id')->references('id')->on('departamentos');

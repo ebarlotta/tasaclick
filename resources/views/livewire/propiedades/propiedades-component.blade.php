@@ -12,8 +12,8 @@
             </div>
     
 
-            <div class="row">
-            <div class="card card-info col-12 col-md-6" data-card-widget="collapse">
+            <div class="row mx-2">
+            <div class="card card-info col-12 col-md-6" >
 
                 <div class="card-header">
                     <h3 class="card-title">Datos Iniciales</h3>
@@ -25,13 +25,14 @@
                     </div>
                 </div>
 
-                <div class="card-body" style="display: none;">
+                <div class="card-body" >  
+                    {{-- style="display: none;" --}}
 
                     <div class="info-box">
                         {{-- <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
                             data-target="#propiedad1"><i class="far fa-copy"></i></span> --}}
                             <span class="info-box-icon bg-success btn btn-default" wire:click="openclose1()">
-                                <i class="far fa-copy"></i>
+                                <i class="fas fa-home"></i>
                             </span>
                         <div class="info-box-content">
                             <span class="info-box-text">
@@ -44,7 +45,7 @@
                         {{-- <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
                             data-target="#propiedad2"><i class="far fa-copy"></i></span> --}}
                             <span class="info-box-icon bg-success btn btn-default" wire:click="openclose2()">
-                                <i class="far fa-copy"></i>
+                                <i class="fas fa-location"></i>
                             </span>
                         <div class="info-box-content">
                             <span class="info-box-text">
@@ -57,9 +58,12 @@
                         </div>
                     </div>
 
+
+                    
                     <div class="info-box">
-                        <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
-                            data-target="#propiedad3"><i class="far fa-copy"></i></span>
+                        <span class="info-box-icon bg-success btn btn-default" wire:click="openclose3()">
+                            <i class="fas fa-percent"></i>
+                        </span>
                         <div class="info-box-content">
                             <span class="info-box-text">
                                 <h5>Coeficientes</h5>
@@ -82,7 +86,8 @@
 
                 </div>
 
-                <div class="card-body" style="display: none;">
+                <div class="card-body" >
+                    {{-- style="display: none;" --}}
                     <div class="info-box">
                         <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
                             data-target="#antecedente1"><i class="far fa-copy"></i></span>
@@ -108,7 +113,7 @@
 
             </div>
 
-            <div class="row">
+            <div class="row mx-2">
 
             <div class="info-box col-12 col-md-6">
                 <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
@@ -148,129 +153,10 @@
             @include('livewire.propiedades.modals.propiedadesmodal2')
         @endif
 
-        <!-- MODAL DATOS PROPIEDAD 3 -->
-        <!-- =====================  -->
-        <div class="modal fade" id="propiedad3" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Coeficientes</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" class="form-horizontal">
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Esquina</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($coeficiente_esquinas as $coeficiente_esquina)
-                                            <option value="{{ $coeficiente_esquina->id }}">
-                                                {{ $coeficiente_esquina->descripcion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Forma</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($coeficiente_formas as $coeficiente_forma)
-                                            <option value="{{ $coeficiente_forma->id }}">
-                                                {{ $coeficiente_forma->descripcion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de
-                                    Topografía</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($coeficiente_topografias as $coeficiente_topografia)
-                                            <option value="{{ $coeficiente_topografia->id }}">
-                                                {{ $coeficiente_topografia->descripcion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Pavimento y
-                                    Servivio</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($coeficiente_pavimentoyservicios as $coeficiente_pavimentoyservicio)
-                                            <option value="{{ $coeficiente_pavimentoyservicio->id }}">
-                                                {{ $coeficiente_pavimentoyservicio->descripcion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de
-                                    Ubicación</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($coeficiente_ubicaciones as $coeficiente_ubicacione)
-                                            <option value="{{ $coeficiente_ubicacione->id }}">
-                                                {{ $coeficiente_ubicacione->descripcion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Oferta</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($coeficiente_ofertas as $coeficiente_oferta)
-                                            <option value="{{ $coeficiente_oferta->id }}">
-                                                {{ $coeficiente_oferta->descripcion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+        @if ($isModal3Open)
+            @include('livewire.propiedades.modals.propiedadesmodal3')
+        @endif
 
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente Zonal:</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($coeficiente_ofertas as $coeficiente_oferta)
-                                            <option value="{{ $coeficiente_oferta->id }}">
-                                                {{ $coeficiente_oferta->descripcion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="inputtext3" class="col-sm-6 col-form-label">Coeficiente de Rescticciones o afectaciones desvalorizantes</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control" placeholder="Provincia">
-                                        <option value="1">-</option>
-                                        @foreach ($coeficiente_ofertas as $coeficiente_oferta)
-                                            <option value="{{ $coeficiente_oferta->id }}">
-                                                {{ $coeficiente_oferta->descripcion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Guardar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- MODAL DATOS ANTECEDENTES 1 -->
         <!-- ========================== -->

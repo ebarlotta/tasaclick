@@ -10,50 +10,50 @@
                      aria-hidden="true">×</span></button> --}}
          </div>
          <div class="modal-body">
-               <form action="" class="form-horizontal">
+               {{-- <form action="" class="form-horizontal"> --}}
                   <div class="form-group row">
                      <label for="inputtext3" class="col-sm-6 col-form-label">Domicilio</label>
                      <div class="col-sm-6">
-                           <input type="text" class="form-control" id="inputtext3" placeholder="Domicilio">
+                           <input type="text" class="form-control" placeholder="Domicilio" wire:model="domicilio">
                      </div>
                   </div>
                   <div class="form-group row">
                      <label for="inputtext3" class="col-sm-6 col-form-label">Padrón Territorial</label>
                      <div class="col-sm-6">
-                           <input type="text" class="form-control" id="inputtext3" placeholder="Padrón Territorial">
+                           <input type="text" class="form-control" placeholder="Padrón Territorial" wire:model="padronterritorial">
                      </div>
                   </div>
                   <div class="form-group row">
                      <label for="inputtext3" class="col-sm-6 col-form-label">Padrón Municipal</label>
                      <div class="col-sm-6">
-                           <input type="text" class="form-control" id="inputtext3" placeholder="Padrón Municipal">
+                           <input type="text" class="form-control" placeholder="Padrón Municipal" wire:model="padronmunicipal">
                      </div>
                   </div>
                   <div class="form-group row">
                      <label for="inputtext3" class="col-sm-6 col-form-label">Titular Registral</label>
                      <div class="col-sm-6">
-                           <input type="text" class="form-control" id="inputtext3" placeholder="Titular Registral">
+                           <input type="text" class="form-control" placeholder="Titular Registral" wire:model="titularregistral">
                      </div>
                   </div>
                   <div class="form-group row">
                      <label for="inputtext3" class="col-sm-6 col-form-label">Nomenclatura Catastral</label>
                      <div class="col-sm-6">
-                           <input type="text" class="form-control" id="inputtext3"
-                              placeholder="Nomenclatura Catastral">
+                           <input type="text" class="form-control"
+                              placeholder="Nomenclatura Catastral" wire:model="nomenclaturacatastral">
                      </div>
                   </div>
                   <div class="form-group row">
                      <label for="inputtext3" class="col-sm-6 col-form-label">Número de Plano</label>
                      <div class="col-sm-6">
-                           <input type="text" class="form-control" id="inputtext3" placeholder="Número de Plano">
+                           <input type="text" class="form-control" placeholder="Número de Plano" wire:model="numerodeplano">
                      </div>
                   </div>
-               </form>
+               {{-- </form> --}}
          </div>
          <div class="modal-footer justify-content-between">
                <button type="button" class="btn btn-default" wire:click="openclose1()">Close</button>
                {{-- <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button> --}}
-               <button type="button" class="btn btn-primary">Guardar</button>
+               <button type="button" class="btn btn-primary" wire:click="A1Guardar()">Guardar</button>
          </div>
 
          {{-- @include('livewire.propiedadescreate') --}}

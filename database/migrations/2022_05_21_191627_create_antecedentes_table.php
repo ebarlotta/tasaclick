@@ -16,12 +16,13 @@ class CreateAntecedentesTable extends Migration
         Schema::create('antecedentes', function (Blueprint $table) {
             $table->id();
             // $table->date('fecha');
-            $table->string('direccion');
+            $table->string('domicilio');
             $table->double('precio');
             $table->double('superficie');
             $table->double('frente');
             $table->double('fondo');
             $table->string('ubicaciongps');
+            $table->string('propiedad_id')->nullable()->default(0);
 
             $table->unsignedBigInteger('zona_id');
             $table->unsignedBigInteger('departamento_id');
