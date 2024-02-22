@@ -29,37 +29,27 @@
                     {{-- style="display: none;" --}}
 
                     <div class="info-box">
-                        {{-- <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
-                            data-target="#propiedad1"><i class="far fa-copy"></i></span> --}}
-                            <span class="info-box-icon bg-success btn btn-default" wire:click="openclose1()">
-                                <i class="fas fa-home"></i>
-                            </span>
+                        <span class="info-box-icon btn btn-default @if($propiedadId) bg-success @endif"  wire:click="openclose1()">
+                            <i class="fas fa-home"></i>
+                        </span>
                         <div class="info-box-content">
                             <span class="info-box-text">
-                                <h5>Datos de Iniciales de la Propiedad</h5>
+                                <div class="d-flex flex-wrap">Datos Iniciales de la Propiedad</div>
                             </span>
                         </div>
                     </div>
 
                     <div class="info-box">
-                        {{-- <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
-                            data-target="#propiedad2"><i class="far fa-copy"></i></span> --}}
-                            <span class="info-box-icon bg-success btn btn-default" wire:click="openclose2()">
-                                <i class="fas fa-location"></i>
-                            </span>
+                        <span class="info-box-icon bg-success btn btn-default @if($propiedadId) bg-success @endif" wire:click="openclose2()">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </span>
                         <div class="info-box-content">
                             <span class="info-box-text">
-                                <h5>Ubicación de la Propiedad</h5>
-                                {{-- <button wire:click="modal1()">Click</button> --}}
-                                {{-- @if ($fondo1)
-                                    @include('livewire.propiedadescreate')
-                                @endif --}}
+                                <h5 disabled="disabled">Ubicación de la Propiedad</h5>
                             </span>
                         </div>
                     </div>
 
-
-                    
                     <div class="info-box">
                         <span class="info-box-icon bg-success btn btn-default" wire:click="openclose3()">
                             <i class="fas fa-percent"></i>
@@ -100,7 +90,7 @@
                     </div>
                     <div class="info-box">
                         <span class="info-box-icon bg-success btn btn-default" data-toggle="modal"
-                            data-target="#antecedente2"><i class="far fa-copy"></i></span>
+                            data-target="#antecedente2"><i class="fa fa-balance-scale"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text">
                                 <h5>Datos de Homogenización</h5>
@@ -116,30 +106,40 @@
             <div class="row mx-2">
 
             <div class="info-box col-12 col-md-6">
-                <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+                <span class="info-box-icon @if($precio>1) bg-success @else bg-warning @endif"><i class="far fa-copy"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text wrap">Valor unitario del m2 de según antecedentes seleccionados:</span>
                     <span class="info-box-number">
-                        <h3>$ 13,648</h3>
+                        <h3>$ {{ $precio }}</h3>
                     </span>
                 </div>
             </div>
             <div class="info-box col-12 col-md-6">
-                <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+                <span class="info-box-icon @if($precionormalizado>1) bg-success @else bg-warning @endif"><i class="far fa-copy"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text wrap">Calculo del valor unitario corregido del m2 de tierra:</span>
                     <span class="info-box-number">
-                        <h3>$ 13,648</h3>
+                        <h3>$ {{ $precionormalizado }}</h3>
                     </span>
                 </div>
             </div>
             <div class="info-box col-12 col-md-6">
-                <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+                <span class="info-box-icon @if($preciofinal>1) bg-success @else bg-warning @endif"><i class="far fa-copy"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text wrap">Valor final del terreno:</span>
                     <span class="info-box-number">
-                        <h3>$ 13,648</h3>
+                        <h3>$ {{ $preciofinal }}</h3>
                     </span>
+                </div>
+            </div>
+            <div class="info-box col-12 col-md-12 @if($preciofinal<1 or $precionormalizado<1 or $precio<1) d-none @endif">
+                <!-- <span class="info-box-icon @if($preciofinal>1) bg-success @else bg-warning @endif"><i class="far fa-copy"></i></span> -->
+                <div class="info-box-content">
+                    <input class="btn bg-success" type="button" value="IMPRIMIR INFORME">
+                    <!-- <span class="info-box-text wrap">Valor final del terreno:</span>
+                    <span class="info-box-number">
+                        <h3>$ {{ $preciofinal }}</h3>
+                    </span> -->
                 </div>
             </div>
         </div>

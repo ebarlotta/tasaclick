@@ -26,7 +26,9 @@ class PropiedadesComponent extends Component
     public $superficie=0;
     public $frentes;
     public $fondos;
-    public $precio;
+    public $precio = 3;
+    public $precionormalizado = 2;
+    public $preciofinal = 2;
     // public $fondo1;
     
     public $isModal1Open,$isModal2Open, $isModal3Open;
@@ -65,6 +67,7 @@ class PropiedadesComponent extends Component
 
     public function render()
     {
+
         //Datos2
         $this->provincias = Provincia::all();
         $this->zonas = Zona::all();
