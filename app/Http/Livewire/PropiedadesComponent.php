@@ -14,10 +14,10 @@ use App\Models\Propiedad;
 
 class PropiedadesComponent extends Component
 {
-    // public $provincias;
-    // public $zonas;
-    // public $departamentos;
-    // public $tipoinmuebles;
+    public $provincias;
+    public $zonas;
+    public $departamentos;
+    public $tipoinmuebles;
     
 
     // public $frentecmb=0;
@@ -32,6 +32,19 @@ class PropiedadesComponent extends Component
     // public $fondo1;
     
     public $isModal1Open,$isModal2Open, $isModal3Open;
+
+    public $coeficiente_esquinas           ;
+    public $coeficiente_formas             ;
+    public $coeficiente_topografias        ;
+    public $coeficiente_pavimentoyservicios;
+    public $coeficiente_ubicaciones        ;
+    public $coeficiente_ofertas            ;
+    public $coeficiente_zonal              ;
+    public $coeficiente_restricciones      ;
+    public $coeficiente_formapagos         ;
+    public $coeficiente_fuenteinformantes  ;
+    public $coeficiente_actualizaciones    ;
+
 
     //A1Guardar Modal
     public $domicilio;
@@ -57,8 +70,8 @@ class PropiedadesComponent extends Component
     public $cmbcoeficiente_pavimentoyservicios;
     public $cmbcoeficiente_ubicaciones        ;
     public $cmbcoeficiente_ofertas            ;
-    public $cmbcoeficiente_zonal            ;
-    public $cmbcoeficiente_restricciones            ;
+    public $cmbcoeficiente_zonal              ;
+    public $cmbcoeficiente_restricciones      ;
 
     public $cmbcoeficiente_formapagos         ;
     public $cmbcoeficiente_fuenteinformantes  ;
