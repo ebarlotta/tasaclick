@@ -26,7 +26,8 @@ class Propiedad extends Model
 
     public function departamento()
     {
-        return $this->hasMany(Departamento::class, 'id', 'departamento_id');
+        // return $this->hasMany(Departamento::class, 'id', 'departamento_id');
+        return $this->hasOne(Departamento::class, 'id', 'departamento_id');
         
     }
 

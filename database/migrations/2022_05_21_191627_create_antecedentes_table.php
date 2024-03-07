@@ -22,7 +22,7 @@ class CreateAntecedentesTable extends Migration
             $table->double('frente');
             $table->double('fondo');
             $table->string('ubicaciongps');
-            $table->string('propiedad_id')->nullable()->default(0);
+            $table->unsignedBigInteger('propiedad_id')->nullable()->default(0);
 
             $table->unsignedBigInteger('zona_id');
             $table->unsignedBigInteger('departamento_id');
@@ -41,6 +41,7 @@ class CreateAntecedentesTable extends Migration
 
             $table->foreign('zona_id')->references('id')->on('zonas');
             $table->foreign('departamento_id')->references('id')->on('departamentos');
+            $table->foreign('propiedad_id')->references('id')->on('propiedads');
 
             $table->timestamps();
 

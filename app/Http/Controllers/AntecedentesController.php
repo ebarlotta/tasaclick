@@ -14,12 +14,31 @@ class AntecedentesController extends Controller
 
     public $mensaje='';
     public $coeficiente;
+    public $search=null;
+    public $antecedentes;
 
+    public function FiltrarDepartamentos() {
+        dd($antecedentes);
+        if($this->search<>'') {
+
+            $antecedentes = Antecedentes::where('departamento_id','=',$this->search)->get();
+        }
+        else {
+            $antecedentes = Antecedentes::all();
+        }
+        dd($antecedentes);
+    }
     public function index()
     {
         $departamentos = Departamento::all();
         $zonas = Zona::all();
-        $antecedentes = Antecedentes::all();
+        if($this->search<>'') {
+            $antecedentes = Antecedentes::where('departamento_id','=',$this->search)
+            ->get();
+        }
+        else {
+            $antecedentes = Antecedentes::all();
+        }
 
         //Coeficientes
         $coeficiente_esquinas            = Coeficientes::where('tabladecoeficiente','CoeficienteDeEsquina')->get();

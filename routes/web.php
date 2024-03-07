@@ -25,12 +25,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('/propiedades', PropiedadController::class);
+// Route::resource('/propiedades', PropiedadController::class);
 // Route::resource('/propiedades/antecedentes', PropiedadController::class);
 Route::resource('/antecedentes', AntecedentesController::class);
 Route::resource('/tasaciones', TasacionController::class);
 
-Route::get('/propiedades2', PropiedadesComponent::class)->name('propiedades2');
+Route::get('/propiedades2', [PropiedadesComponent::class,'render2'])->name('propiedades2');
+Route::get('/propiedades', PropiedadesComponent::class)->name('propiedades');
 
 
 

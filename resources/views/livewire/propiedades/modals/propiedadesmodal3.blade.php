@@ -129,6 +129,32 @@
                            </select>
                      </div>
                   </div>
+                  <div class="form-group row">
+                     <label for="inputtext3" class="col-sm-8 col-form-label">Coeficiente de Fuente Informante</label>
+                     <div class="col-sm-4">
+                           <select class="form-control"
+                              placeholder="Coeficiente de Fuente Informante" wire:model="cmbcoeficiente_fuenteinformantes">
+                              <option value="1">-</option>
+                              @foreach ($coeficiente_fuenteinformantes as $coeficiente_fuenteinformante)
+                                 <option value="{{ $coeficiente_fuenteinformante->id }}">
+                                       {{ $coeficiente_fuenteinformante->descripcion }}</option>
+                              @endforeach
+                           </select>
+                     </div>
+                  </div>
+                  <div class="form-group row">
+                     <label for="inputtext3" class="col-sm-8 col-form-label">Coeficiente de Actualizaciones</label>
+                     <div class="col-sm-4">
+                           <select class="form-control"
+                              placeholder="Coeficiente de Actualizaciones" wire:model="cmbcoeficiente_actualizaciones">
+                              <option value="1">-</option>
+                              @foreach ($coeficiente_actualizaciones as $coeficiente_actualizacion)
+                                 <option value="{{ $coeficiente_actualizacion->id }}">
+                                       {{ $coeficiente_actualizacion->descripcion }}</option>
+                              @endforeach
+                           </select>
+                     </div>
+                  </div>
                {{-- </form> --}}
          </div>
          <div class="modal-footer justify-content-between">

@@ -7,6 +7,12 @@
         <div class="card">
           <div class="card-body">
             <button type="button" class="card-text bg-success text-center rounded-md px-3 mr-1 shadow-lg">Agregar Nuevo Antecedente</button>
+            <select name="" id="" wire:model="search" wire:change="FiltrarDepartamentos()">
+              <option value="">-</option>
+              @foreach($departamentos as $departamento) 
+                <option value="{{ $departamento->id }}">{{ $departamento->descripcion }}</option>
+              @endforeach
+            </select>
             {{-- @if ($mensaje)
                 <div class="bg-success">{{ $mensaje}}</div>
             @endif --}}

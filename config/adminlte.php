@@ -363,9 +363,14 @@ return [
             'url'        => 'propiedades',
         ],
         [
-            'text'       => 'Propiedades 2',
+            'text'       => 'Listado de Propiedades',
             'icon_color' => 'green',
             'url'        => 'propiedades2',
+        ],
+        [
+            'text'       => 'Alta Propiedades',
+            'icon_color' => 'green',
+            'url'        => 'propiedades',
         ],
         [
             'text'       => 'Terrenos',
