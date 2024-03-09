@@ -34,6 +34,7 @@ class PropiedadesComponent extends Component
     public $propiedades;    //Utilizadas para el listado de propiedades
 
     public $isModal1Open,$isModal2Open, $isModal3Open, $isModal4Open;
+    public $isHidden1Open;
 
     public $coeficiente_esquinas           ;
     public $coeficiente_formas             ;
@@ -144,7 +145,7 @@ class PropiedadesComponent extends Component
         $this->fondos                          = CoeficienteFrenteFondo::select('id','fila')->distinct()->get();
         // dd($this->coeficiente_fuenteinformantes);
         $propiedades = Propiedad::all();
-        return view('livewire.propiedades.propiedades2-component',compact('propiedades'))->extends('layouts.adminlte');
+        return view('livewire.propiedades.propiedades2-component',compact('propiedades'))->with('isHidden1Open',$this->isHidden1Open)->extends('layouts.adminlte');
     }
 
     public function calcularsuperficie() {
@@ -297,5 +298,10 @@ class PropiedadesComponent extends Component
         // dd($antecedente);
         $antecedente->save();
         $this->openclose4();
+    }
+
+    public function MostrarValoresFijados($id) {
+        $valorefijados = Antecedentes::where('propiedad_id','=',$id)->get();
+        $this->isHidden1Open = !$this->isHidden1Open;
     }
 }

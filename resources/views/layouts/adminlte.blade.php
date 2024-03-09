@@ -7,6 +7,9 @@
 @stop --}}
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
+@livewireScripts
+@livewireStyles
+
 @section('content')
     <p>Welcome to this beautiful admin panel.</p>
 @stop
@@ -16,8 +19,7 @@
 @stop --}}
 @stack('modals')
 
-    @livewireScripts
 
 @section('js')
-    <script> console.log('Hia!'); </script>
+    <script> console.log('Haia!'); </script>
 @stop

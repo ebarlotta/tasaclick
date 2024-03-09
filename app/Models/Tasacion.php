@@ -38,13 +38,21 @@ class Tasacion extends Model
 
     public function propiedad()
     {
-        return $this->hasMany(Propiedad::class, 'id', 'propiedad_id');
+        return $this->hasOne(Propiedad::class, 'id', 'propiedad_id');
+        // return $this->hasMany(Propiedad::class, 'id', 'propiedad_id');
         
     }
 
     public function imagenplano()
     {
         return $this->hasOne(Archivo::class, 'id','propiedad_id');
+        // return $this->hasMany(Archivo::class, 'propiedad_id', 'id');
+        
+    }
+
+    public function departamento()
+    {
+        return $this->hasOne(Departamento::class, 'id','departamentos_id');
         // return $this->hasMany(Archivo::class, 'propiedad_id', 'id');
         
     }

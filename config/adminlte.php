@@ -194,6 +194,7 @@ return [
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
+    // 'password_reset_url' => '',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => false,
@@ -308,44 +309,44 @@ return [
         [
             'text'       => 'Empresas',
             'icon_color' => 'green',
-            'url'        => 'home',
+            'url'        => 'empresas',
         ],
         [
             'text'       => 'Usuarios',
             'icon_color' => 'green',
-            'url'        => 'home',
+            'url'        => 'usuarios',
         ],
         ['header' => 'CONFIGURACIONES'],
         [
             'text'       => 'Comitentes',
             'icon_color' => 'green',
-            'url'        => 'home',
+            'url'        => 'comitentes',
         ],
-        [
-            'text'       => 'Tipo Inmuebles',
-            'icon_color' => 'green',
-            'url'        => 'home',
-        ],
+        // [
+        //     'text'       => 'Tipo Inmuebles',
+        //     'icon_color' => 'green',
+        //     'url'        => 'home',
+        // ],
         [
             'text'       => 'Tasadores',
             'icon_color' => 'green',
-            'url'        => 'home',
+            'url'        => 'tasadores',
         ],
         [
             'text'       => 'Provincias',
             'icon_color' => 'green',
-            'url'        => 'home',
+            'url'        => 'provincias',
         ],
         [
             'text'       => 'Departamentos',
             'icon_color' => 'green',
-            'url'        => 'home',
+            'url'        => 'departamentos',
         ],
-        [
-            'text'       => 'Zonas',
-            'icon_color' => 'green',
-            'url'        => 'home',
-        ],
+        // [
+        //     'text'       => 'Zonas',
+        //     'icon_color' => 'green',
+        //     'url'        => 'home',
+        // ],
         ['header' => 'TASACIONES'],
         [
             'text'       => 'Tasaciones',
@@ -358,25 +359,20 @@ return [
             'url'        => 'antecedentes',
         ],
         [
-            'text'       => 'Propiedades',
-            'icon_color' => 'green',
-            'url'        => 'propiedades',
-        ],
-        [
             'text'       => 'Listado de Propiedades',
             'icon_color' => 'green',
-            'url'        => 'propiedades2',
+            'url'        => 'listadopropiedades',
         ],
         [
             'text'       => 'Alta Propiedades',
             'icon_color' => 'green',
             'url'        => 'propiedades',
         ],
-        [
-            'text'       => 'Terrenos',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
+        // [
+        //     'text'       => 'Terrenos',
+        //     'icon_color' => 'yellow',
+        //     'url'        => '#',
+        // ],
         // [
         //     'text'       => 'Mejoras',
         //     'icon_color' => 'yellow',
