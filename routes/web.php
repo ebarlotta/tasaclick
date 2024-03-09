@@ -10,6 +10,7 @@ use App\Http\Livewire\Comitente\ComitentesComponent;
 use App\Http\Livewire\Departamentos\DepartaentosComponent;
 use App\Http\Livewire\Empresa\EmpresasComponent;
 use App\Http\Livewire\Listadopropiedades\ListadopropiedadesComponent;
+use App\Http\Livewire\Listapropiedades\ListapropiedadesComponent;
 use App\Http\Livewire\PropiedadesComponent;
 use App\Http\Livewire\Provincia\ProvinciasComponent;
 use App\Http\Livewire\Tasacion\TasacionesComponent;
@@ -40,7 +41,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::resource('/antecedentes', AntecedentesController::class);
 // Route::resource('/tasaciones', TasacionController::class);
 
-Route::get('/listadopropiedades', ListadopropiedadesComponent::class)->name('listadopropiedades');
+// Route::get('/listadopropiedades', ListadopropiedadesComponent::class)->name('listadopropiedades');
 // Route::get('/propiedades2', [PropiedadesComponent::class,'render2'])->name('propiedades2');
 Route::get('/propiedades', PropiedadesComponent::class)->name('propiedades');
 Route::get('/departamentos', DepartaentosComponent::class)->name('departamentos');
@@ -52,6 +53,7 @@ Route::get('/empresas', EmpresasComponent::class)->name('empresas');
 Route::get('/usuarios', UsuariosComponent::class)->name('usuarios');
 Route::get('/tasaciones', TasacionesComponent::class)->name('tasaciones');
 Route::get('/antecedentes', AntecedentesComponent::class)->name('antecedentes');
+Route::get('/listapropiedades', ListapropiedadesComponent::class)->name('listapropiedades');
 
 
 
