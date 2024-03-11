@@ -12,11 +12,12 @@ class Antecedentes extends Model
     use HasFactory;
 
     protected $fillable = [
-        'ubicacion',
+        'domicilio',
         'precio',
         'superficie',
         'frente',
         'fondo',
+        'ubicaciongps',
         'zona_id',
         'departamento_id',
         'coeficiente_esquinas',
@@ -29,7 +30,7 @@ class Antecedentes extends Model
         'coeficiente_fuenteinformantes',
         'coeficiente_actualizaciones',
         'precionormalizado',
-
+        'coheficientenormalizado',
     ];
 
     // Relación uno a muchos
