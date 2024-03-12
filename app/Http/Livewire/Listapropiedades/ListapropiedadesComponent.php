@@ -98,4 +98,9 @@ class ListapropiedadesComponent extends Component
         $this->id = $id;
         $this->isModalValoresfijados = !$this->isModalValoresfijados;
     }
+
+    public function borrar() {
+        $this->isHidden1Open = true;
+        $this->isModalValoresfijados = !$this->isModalValoresfijados;
+    }
 }

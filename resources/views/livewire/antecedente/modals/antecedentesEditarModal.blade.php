@@ -11,7 +11,7 @@
                      <span aria-hidden="true" wire:click="isModalAlta();">×</span>
                   {{-- <button type="button" class="btn btn-primary" wire:click="Alta({{ $antecedente->id }})">Guardar</button> --}}
                   @else
-                     <span aria-hidden="true" wire:click="isModalEditar({{ $antecedente->id }});">×</span>
+                     <span aria-hidden="true" wire:click="isModalEditar({{ $antecedente_id }});">×</span>
                      {{-- <button type="button" class="btn btn-primary" wire:click="Alta({{ $antecedente->id }})">Actualizar</button> --}}
                   @endif
                 </button>
@@ -230,9 +230,9 @@
                @endif
 
                 @if($isModalAltashow)
-                   <button type="button" class="btn btn-primary" wire:click="Alta({{ $antecedente->id }})">Guardar</button>
+                   <button type="button" class="btn btn-primary" wire:click="Alta({{ $antecedente_id }})">Guardar</button>
                @else
-                   <button type="button" class="btn btn-primary" wire:click="Alta({{ $antecedente->id }})">Actualizar</button>
+                   <button type="button" class="btn btn-primary" wire:click="Alta({{ $antecedente_id  }})">Actualizar</button>
                @endif
           </div>
        </div>

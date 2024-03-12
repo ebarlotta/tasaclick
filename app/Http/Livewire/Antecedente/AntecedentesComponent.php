@@ -77,8 +77,9 @@ class AntecedentesComponent extends Component
         $this->txtcoeficientenormalizado=$this->calcular_coeficiente($antecedente[0]);
         $this->txtprecionormalizado=$antecedente[0]->coeficientenormalizado*$antecedente[0]->precio;
         $this->antecedente_id = $antecedente[0]->id;
-
+        
         $this->isModalEditar = !$this->isModalEditar;
+        // dd($this->antecedente_id);
         
     }
 
@@ -90,6 +91,8 @@ class AntecedentesComponent extends Component
     }
 
     public function Alta($id) {
+        // dd($id);
+
         if($id>0) {
             $antecedente = Antecedentes::where('id','=',$id)->get();
             $this->antecedente_id = $antecedente[0]->id;
@@ -119,7 +122,7 @@ class AntecedentesComponent extends Component
             'txtcoeficientenormalizado' => 'required',
         ]);
 
-        Antecedentes::updateOrCreate(['id' => $this->antecedente_id], [
+        $a = Antecedentes::updateOrCreate(['id' => $this->antecedente_id], [
             'created_at' => $this->txtfecha,
             'domicilio' => $this->txtdomicilio,
             'precio'  => $this->txtprecio,
@@ -138,12 +141,18 @@ class AntecedentesComponent extends Component
             'coeficiente_formas' => $this->cmbcoeficiente_formapagos,
             'coeficiente_fuenteinformantes' => $this->cmbcoeficiente_fuenteinformantes,
             'coeficiente_actualizaciones' => $this->cmbcoeficiente_actualizaciones,
-            'precionormalizado' => $this->txtprecionormalizado,
             'coeficientenormalizado' => $this->txtprecio * $this->txtprecionormalizado,        
+            'precionormalizado' => $this->txtprecionormalizado,
         ]);
         
+        $a->coeficientenormalizado = $this->calcular_coeficiente($a);
+        $a->precionormalizado = $a->coeficientenormalizado * $a->precio;
+        // dd($a->precionormalizado);
+        $a->save();
+
         session()->flash('message', 'Se guardaron los datos');
         $this->antecedente_id =null;
+        // dd($this->antecedente_id);
     }
 
     public function calcular_coeficiente(Antecedentes $A) {   
