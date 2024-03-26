@@ -16,6 +16,7 @@ use App\Models\Propiedad;
 class ListapropiedadesComponent extends Component
 {
     public $provincias;
+    public $ciudades;
     public $zonas;
     public $departamentos;
     public $tipoinmuebles;
@@ -47,11 +48,14 @@ class ListapropiedadesComponent extends Component
     public $promedioprecionormalizado;
     public $promediocoeficientenormalizado;
 
+    public $filtroCiudad, $ciudad_id_filtro;
+
 
     public function render()
     {
         //Datos2
         $this->provincias = Provincia::all();
+        $this->ciudades = Departamento::distinct()->get();
         $this->zonas = Zona::all();
         $this->departamentos = Departamento::orderby('descripcion')->get();
         $this->tipoinmuebles = TipoInmueble::all();
@@ -71,7 +75,11 @@ class ListapropiedadesComponent extends Component
 
         $this->fondos                          = CoeficienteFrenteFondo::select('id','fila')->distinct()->get();
         // dd($this->coeficiente_fuenteinformantes);
-        $this->propiedades = Propiedad::all();
+        if((int)$this->ciudad_id_filtro==0) {
+            $this->propiedades = Propiedad::all(); }
+        else {
+            $this->propiedades = Propiedad::where('departamento_id','=',$this->ciudad_id_filtro)->get();       
+        }
        //  return view('livewire.propiedades.propiedades2-component',
        $this->fijados = Antecedentes::where('propiedad_id','=',$this->id)->get();
        $this->acumuladoprecio=0; $this->cantidad=0; $this->precionormalizado=0; $this->coeficientenormalizado=0; $this->cantidad = 0;
@@ -91,6 +99,7 @@ class ListapropiedadesComponent extends Component
 
        // dd($this->fijados->departamento);
        // dd($this->fijados->departamento);
+
         return view('livewire.listapropiedades.listapropiedades-component')->extends('layouts.adminlte');
     }
 
@@ -103,4 +112,6 @@ class ListapropiedadesComponent extends Component
         $this->isHidden1Open = true;
         $this->isModalValoresfijados = !$this->isModalValoresfijados;
     }
+
+   
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropiedadController;
 use App\Http\Controllers\AntecedentesController;
 use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\GmapsController;
 use App\Http\Controllers\TasacionController;
 use App\Http\Livewire\Antecedente\AntecedentesComponent;
 use App\Http\Livewire\Comitente\ComitentesComponent;
@@ -54,6 +55,10 @@ Route::get('/usuarios', UsuariosComponent::class)->name('usuarios');
 Route::get('/tasaciones', TasacionesComponent::class)->name('tasaciones');
 Route::get('/antecedentes', AntecedentesComponent::class)->name('antecedentes');
 Route::get('/listapropiedades', ListapropiedadesComponent::class)->name('listapropiedades');
+
+Route::get('/gmaps', [App\Http\Controllers\GmapsController::class,'index'])->name('gmaps');
+
+// Route::get('/gmaps', ['as ' => 'gmaps', 'uses' => 'GmapsController@index']);
 
 
 

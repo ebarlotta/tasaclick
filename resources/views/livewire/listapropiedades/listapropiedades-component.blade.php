@@ -7,19 +7,30 @@
                         style="float: left; height: 65px; width: 65px; border-radius: 50%;">
                 </div>
 
-                <h3 class="widget-user-username">Nadia Carmichael</h3>
+                <h3 class="widget-user-username">Nadia Carmichaelss</h3>
                 <h5 class="widget-user-desc">Lead Developer</h5>
             </div>
 
             <div class="row mx-2">
                 <div class="card card-info col-12">
                     <div class="card-header">
-                        <h3 class="card-title">Listado de Propiedades</h3>
-                        <span class="float-right badge bg-warning">0 / 3</span>
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                    class="fas fa-plus"></i>
-                            </button>
+                        <div class="d-flex">
+                            <h3 class="card-title col-2">Listado de Propiedades</h3>
+                            <div class="col-2 ml-2">
+                                Ciudades
+                                <select wire:model="ciudad_id_filtro" class="form-control col-12">
+                                    <option value="">Filtrar por ciudad</option>
+                                    @foreach ($ciudades as $ciudad)
+                                        <option value="{{ $ciudad->id}}">{{ $ciudad->descripcion}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            {{-- <div class="col-8">
+                                <span class="float-right badge bg-warning">1 / 1</span>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div> --}}
                         </div>
                     </div>
 
@@ -32,31 +43,47 @@
                                 <td><b>Frente</b></td>
                                 <td><b>Fondo</b></td>
                                 <td><b>Ciudad</b></td>
-                                <td><b>Opciones</b></td>
+                                {{-- <td><b>Opciones</b></td> --}}
                             </tr>
                             @foreach ($propiedades as $propiedad)
                                 <tr wire:click="isModalValoresfijados({{ $propiedad->id }})">
                                     {{-- <td style="text-align: center"><input type="checkbox" value=" "
                                             wire:change="MostrarValoresFijados({{ $propiedad->id }})"></td> --}}
                                     <td>{{ $propiedad->domicilio }}</td>
-                                    <td>{{ $propiedad->ubicaciongps }}</td>
+                                    <td>{{ $propiedad->ubicaciongps }}
+                                        <div class="mapouter">
+                                            <div class="gmap_canvas">
+                                                <iframe width="400" height="100" id="gmap_canvas" src="https://maps.google.com/maps?q={{ $propiedad->ubicaciongps }}&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                                </iframe>
+                                                {{-- <a href="https://timenowin.net/">online clock</a><br><a href="https://www.analarmclock.com/"></a>
+                                                <br>
+                                                <style>.mapouter{position: relative;text-align: right;height: 560px;width: 820px;}</style>
+                                                <a href="https://www.mapembed.net">google maps embed</a>
+                                                    <style>.gmap_canvas{overflow: hidden;background: none !important;height: 560px;width: 820px;}</style> --}}
+                                            </div>
+                                    </td>
                                     <td style="text-align: right">{{ $propiedad->frente }}</td>
                                     <td style="text-align: right">{{ $propiedad->fondo }}</td>
                                     <td style="text-align: right">{{ $propiedad->departamento->descripcion }}</td>
-                                    <td>
-                                        <button wire:click="borrar({{ $propiedad->id }});" class="btn-warning transform transition duration-500 hover:scale-105" data-toggle="modal" data-target="#exampleModalCenter"> Modificar</button>
-                                        <button  wire:click="isModalValoresfijados({{ $propiedad->id }})" type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Ver detalle</button>
+                                    {{-- <td> --}}
+                                        
+                                        {{-- <a href=""   > --}}
+
+                                            {{-- <input wire:click="isModalValoresfijados({{ $propiedad->id }})" type="submit" class="form-control col-12" value="Modificar">  --}}
+                                        {{-- </a> --}}
+                                        {{-- <button  wire:click="isModalValoresfijados({{ $propiedad->id }})" type="button" class="btn btn-success">Ver detalle</button> --}}
+                                        {{-- <button  wire:click="isModalValoresfijados({{ $propiedad->id }})" type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Ver detalle</button> --}}
                                         {{-- <input type="button" class="btn-success" wire:click="isModalValoresfijados({{ $propiedad->id }})" value="Ver Detalle"> --}}
-                                    </td>
+                                    {{-- </td> --}}
                                 </tr>
                             @endforeach
                         </table>
 
-                        {{-- @if ($isModalValoresfijados)
+                        @if ($isModalValoresfijados)
                             @include('livewire.listapropiedades.modals.propiedadesmodal1')
-                            @include('livewire.antecedente.modals.antecedentesEditarModal')
+                            {{-- @include('livewire.antecedente.modals.antecedentesEditarModal') --}}
                         @endif   
-                        @if ($isHidden1Open) 
+                        {{-- @if ($isHidden1Open) 
                             @include('livewire.listapropiedades.modals.createactores')
                         @endif --}}
                     </div>
