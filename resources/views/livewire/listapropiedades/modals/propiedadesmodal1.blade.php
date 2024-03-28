@@ -1,7 +1,7 @@
 <div>
+    <!-- MODAL DATOS PROPIEDAD1  -->
+    <!-- =====================  -->
     <div class="modal fade show" id="modal-default" style="display: block;" aria-modal="true" role="dialog">
-        <!-- MODAL DATOS PROPIEDAD1  -->
-        <!-- =====================  -->
         <div class="modal-dialog" style="width: 70%; max-width: 70%">
             <div class="modal-content">
                 <div class="modal-header">
@@ -13,6 +13,7 @@
                 </div>
                 <div class="modal-body">
                     <h3>Antecedentes Fijados</h3>
+                    <button  wire:click="isModalValoresfijados({{ $propiedad->id }})" type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Agregar Antecedentes</button>
                     <table border="1" class="table-responsive">
                         <tr>
                             <td class="col-1">Departamento</td>
@@ -40,7 +41,8 @@
                                     <td class="col-1">{{ $fijado->fondo }}</td>
                                     <td class="col-1">{{ $fijado->precionormalizado }}</td>
                                     <td class="col-1">{{ $fijado->coeficientenormalizado }}</td>
-                                    <td class="col-2">Opciones</td>
+                                    <td class="col-2">
+                                        <button type="button" class="btn btn-danger" wire:click="TomarIdAntecedenteAQuitar({{ $fijado->id }})" data-toggle="modal" data-target="#modalquitarantecedente">Quitar</button></td>
                                 </tr>
                             @endforeach
                         @else
@@ -58,35 +60,26 @@
                         <tr>
                             <td colspan="9" class="text-right">Cantidad de Antecedentes: </td>
                             <td class="text-right">{{ $cantidad }}</td>
-                            {{-- <td class="text-right">${{ number_format($Acumulado, 2) }}</td> --}}
-                            {{-- <td>Precios</td>
-                            <td>Valor Unitario</td>
-                            <td>Valor Unitario corregido</td> --}}
                         </tr>
                         <tr>
                             <td colspan="9" class="text-right">Precio Acumulado:</td>
                             <td class="text-right">$ {{ number_format($acumuladoprecio,2) }}</td>
-                            {{-- <td class="text-right">${{ number_format($Acumulado, 2) }}</td> --}}
                         </tr>
                         <tr>
                             <td colspan="9" class="text-right">Precio normalizado Acumulado:</td>
                             <td class="text-right">$ {{ number_format($precionormalizado,2) }}</td>
-                            {{-- <td class="text-right">${{ number_format($promediopreciovalorcorregido, 2) }}</td> --}}
                         </tr>
                         <tr>
                             <td colspan="9" class="text-right">Precio de coeficientes Acumulado:</td>
                             <td class="text-right">$ {{ number_format($coeficientenormalizado,2) }}</td>
-                            {{-- <td class="text-right">${{ number_format($promediopreciovalorcorregido, 2) }}</td> --}}
                         </tr>
                         <tr>
                             <td colspan="9" class="text-right">Promedio de precios normalizados:</td>
                             <td class="text-right">$ {{ number_format($promedioprecionormalizado,2) }}</td>
-                            {{-- <td class="text-right">${{ number_format($promediopreciovalorcorregido, 2) }}</td> --}}
                         </tr>
                         <tr>
                             <td colspan="9" class="text-right">Promedio de ceficientes normalizados:</td>
                             <td class="text-right">$ {{ number_format($promediocoeficientenormalizado,2) }}</td>
-                            {{-- <td class="text-right">${{ number_format($promediopreciovalorcorregido, 2) }}</td> --}}
                         </tr>
                     </table>
 
@@ -97,5 +90,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
 <div>

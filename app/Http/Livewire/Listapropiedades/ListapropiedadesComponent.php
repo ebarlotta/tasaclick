@@ -16,6 +16,7 @@ use App\Models\Propiedad;
 class ListapropiedadesComponent extends Component
 {
     public $provincias;
+    public $propiedad_id;
     public $ciudades;
     public $zonas;
     public $departamentos;
@@ -25,6 +26,8 @@ class ListapropiedadesComponent extends Component
     public $fondos;
 
     public $fijados=null;
+    public $antecedentesnofijados=null;
+    public $fijado_id;
 
     public $isHidden1Open=false;
     public $isModalValoresfijados=false;
@@ -113,5 +116,49 @@ class ListapropiedadesComponent extends Component
         $this->isModalValoresfijados = !$this->isModalValoresfijados;
     }
 
-   
+    public function TomarIdPropiedad($id) {
+        $this->id = $id;
+        $this->propiedad_id = $id;
+        // dd($this->propiedad_id);
+    }
+
+    public function setNullPropiedad() {
+        $this->id = null;
+    }
+
+    public function TomarIdAntecedenteAQuitar($id) {
+        $this->fijado_id = $id;
+    }
+    
+    public function QuitarAntecedente() {
+        Antecedentes::where('id','=',$this->fijado_id)->delete();
+        $this->fijados = Antecedentes::where('propiedad_id','=',$this->id)->get();
+    }
+
+    public function CargarAntecedentesNoFijados() {
+        $this->antecedentesnofijados = Antecedentes::where('propiedad_id','<>',$this->propiedad_id)->get();
+        // dd($this->antecedentesnofijados);
+    }
+
+    public function FijarAntecedente($IdAntecedenteAFijar) {
+        $a=Antecedentes::find($IdAntecedenteAFijar);
+        if($a) {
+            // $propi = Propiedad::find($this->propiedad_id);
+            // $c = Antecedentes::where('ubicaciongpss','=',$propi->ubicaciongps)
+            // ->where('propiedad_id','=',$this->propiedad_id)->get();
+            // dd($c->count());
+            // if(count($c)) {
+            //     echo "no se graba. Repetido";
+            // } else
+            // {
+                $b = $a->replicate();
+                $b->propiedad_id = $this->propiedad_id;
+                $b->save();
+            
+        }
+    }
+
+    public function LiberarNoFijados() {
+        $this->antecedentesnofijados=null;
+    }
 }
