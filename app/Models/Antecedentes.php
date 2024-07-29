@@ -30,7 +30,8 @@ class Antecedentes extends Model
         'coeficiente_fuenteinformantes',
         'coeficiente_actualizaciones',
         'precionormalizado',
-        'coheficientenormalizado',
+        'coeficientenormalizado',
+        'propiedad_id',
     ];
 
     // Relación uno a muchos

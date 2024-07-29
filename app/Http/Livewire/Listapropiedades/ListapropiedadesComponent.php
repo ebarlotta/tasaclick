@@ -72,21 +72,22 @@ class ListapropiedadesComponent extends Component
         $this->fondos                          = CoeficienteFrenteFondo::select('id','fila')->distinct()->get();
 
         $this->propiedades = Propiedad::all();
+
         // $this->fijados = Antecedentes::where('propiedad_id','=',$this->id)->get();
-        // $this->acumuladoprecio=0; $this->cantidad=0; $this->precionormalizado=0; $this->coeficientenormalizado=0; $this->cantidad = 0;
-        // foreach($this->fijados as $temp) {
-        //     $this->acumuladoprecio = $this->acumuladoprecio + $temp->precio;
-        //     $this->cantidad++;
-        //     $this->precionormalizado = $this->precionormalizado + $temp->precionormalizado;
-        //     $this->coeficientenormalizado = $this->coeficientenormalizado + $temp->coeficientenormalizado;
-        // }
-        // if($this->cantidad>0) {
-        //     $this->promedioprecionormalizado = $this->precionormalizado/$this->cantidad;
-        //     $this->promediocoeficientenormalizado = $this->coeficientenormalizado/$this->cantidad;
-        // } else {
-        //     $this->promedioprecionormalizado = 0;
-        //     $this->promediocoeficientenormalizado = 0;
-        // }
+        $this->acumuladoprecio=0; $this->cantidad=0; $this->precionormalizado=0; $this->coeficientenormalizado=0; $this->cantidad = 0;
+        foreach($this->fijados as $temp) {
+            $this->acumuladoprecio = $this->acumuladoprecio + $temp->precio;
+            $this->cantidad++;
+            $this->precionormalizado = $this->precionormalizado + $temp->precionormalizado;
+            $this->coeficientenormalizado = $this->coeficientenormalizado + $temp->coeficientenormalizado;
+        }
+        if($this->cantidad>0) {
+            $this->promedioprecionormalizado = $this->precionormalizado/$this->cantidad;
+            $this->promediocoeficientenormalizado = $this->coeficientenormalizado/$this->cantidad;
+        } else {
+            $this->promedioprecionormalizado = 0;
+            $this->promediocoeficientenormalizado = 0;
+        }
 
        // dd($this->fijados->departamento);
        // dd($this->fijados->departamento);
@@ -156,7 +157,6 @@ class ListapropiedadesComponent extends Component
         $nuevoantecedente->save();
 
             // $nuevoantecedente = $antecedente;
-            // dd($nuevoantecedente);
         }
     }
 }

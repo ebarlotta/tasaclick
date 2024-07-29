@@ -9,12 +9,13 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "jeroennoten/laravel-adminlte": "^3.8",
-        "laravel/fortify": "^1.13",
+        "laravel/fortify": "*",
         "laravel/framework": "^8.75",
+        "laravel/jetstream": "^2.9",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
-        "livewire/livewire": "^2.12",
+        "livewire/livewire": "^2.5",
         "stripe/stripe-php": "^8.3"
     },
     "require-dev": {
@@ -34,7 +35,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Modules\\": "Modules/"
         }
     },
     "scripts": {

@@ -28,7 +28,7 @@
                             </div>
                         </div>
 
-                        <div class="card-body">
+                        <div wire:ignore.self  class="card-body">
                             <table border="1" style="width: 100%" class="table table-striped">
                                 <tr>
                                     {{-- <td>Opc.</td> --}}
@@ -40,7 +40,8 @@
                                     <td>Opciones</td>
                                 </tr>
                                 @foreach ($propiedades as $propiedad)
-                                    <tr class="transform transition duration-500 hover:scale-105" wire:click="MostrarValoresFijados({{ $propiedad->id }})">
+                                    <tr class="transform transition duration-500 hover:scale-105"> 
+                                        {{-- wire:click.prevent="MostrarValoresFijados({{ $propiedad->id }})" --}}
                                         {{-- <td style="text-align: center"><input type="checkbox" value=" "
                                                 wire:change="MostrarValoresFijados({{ $propiedad->id }})"></td> --}}
                                         <td>{{ $propiedad->domicilio }}</td>
@@ -50,7 +51,7 @@
                                         <td style="text-align: right">{{ $propiedad->departamento->descripcion }}</td>
                                         <td>
                                             <button class="btn-warning transform transition duration-500 hover:scale-105" wire:click="alert('holaaa')">Modificar</button>
-                                            <button class="btn-success" wire:change="MostrarValoresFijados({{ $propiedad->id }})" wire:click="MostrarValoresFijados({{ $propiedad->id }})">Ver Detalle</button>
+                                            <button class="btn-success" wire:change.prevent="MostrarValoresFijados({{ $propiedad->id }})" wire:click="MostrarValoresFijados({{ $propiedad->id }})">Ver Detalle</button>
                                         </td>
                                     </tr>
                                 @endforeach

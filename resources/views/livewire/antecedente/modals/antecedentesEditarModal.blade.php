@@ -217,6 +217,20 @@
                          </div>
                          @error('cmbcoeficiente_actualizaciones') <span style="color:red;">{{ $message }}</span>@enderror
                       </div>
+                      <div class="form-group row">
+                        <label for="inputtext3" class="col-sm-8 col-form-label">Coeficiente de Formas de Pago</label>
+                        <div class="col-sm-4">
+                           {{-- {{ $coeficiente_formapagos }} --}}
+                              <select class="form-control" placeholder="Coeficiente de Formas Pago" wire:model="cmbcoeficiente_formapagos">
+                                 <option value="1">-</option>
+                                 @foreach ($coeficiente_formapagos as $coeficiente_formapago)
+                                    <option value="{{ $coeficiente_formapago->id }}">{{ $coeficiente_formapago->descripcion }}</option>
+                                 @endforeach
+                              </select>
+                        </div>
+                        @error('cmbcoeficiente_formapagos') <span style="color:red;">{{ $message }}</span>@enderror
+                     </div>
+
                    </td>            
                 </tr>
              </table>
@@ -226,7 +240,7 @@
                @if($isModalAltashow)
                   <button type="button" class="btn btn-default" wire:click="isModalAlta()">Cerrar</button>
                @else
-                  <button type="button" class="btn btn-default" wire:click="isModalEditar({{ $antecedente->id }})">Cerrar</button>
+                  <button type="button" class="btn btn-default" wire:click="isModalEditar({{ $antecedente_id }})">Cerrar</button>
                @endif
 
                 @if($isModalAltashow)

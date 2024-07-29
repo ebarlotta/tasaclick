@@ -196,7 +196,7 @@ class PropiedadesComponent extends Component
         //dd($this->cmbubicacion);
 
         $propiedad = Propiedad::find($this->propiedadId);
-
+// dd($this->propiedadId);
     //$propiedad-> = $cmbprovincias;
         $propiedad->departamento_id = $this->cmbdepartamentos;
         $propiedad->tipoinmueble_id = $this->cmbtipoinmuebles;

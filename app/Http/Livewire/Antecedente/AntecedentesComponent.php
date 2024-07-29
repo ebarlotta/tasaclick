@@ -48,7 +48,9 @@ class AntecedentesComponent extends Component
         $this->coeficiente_actualizaciones     = Coeficientes::where('tabladecoeficiente','Coeficiente de Actualización')->get();
         $this->frentes                         = CoeficienteFrenteFondo::select('columna')->distinct()->get();
         $this->fondos = CoeficienteFrenteFondo::select('id','fila')->distinct()->get();
-
+{
+    // dd($this->coeficiente_formapagos);
+}
         $this->antecedentes = Antecedentes::all();
 
         return view('livewire.antecedente.antecedentes-component')->extends('layouts.adminlte');;
@@ -71,7 +73,7 @@ class AntecedentesComponent extends Component
         $this->cmbcoeficiente_pavimentoyservicios = $antecedente[0]->coeficiente_pavimentoyservicios;
         $this->cmbcoeficiente_ubicaciones = $antecedente[0]->coeficiente_ubicaciones;
         $this->cmbcoeficiente_ofertas = $antecedente[0]->coeficiente_ofertas;
-        $this->cmbcoeficiente_formapagos =  $antecedente[0]->coeficiente_formas;
+        $this->cmbcoeficiente_formapagos =  $antecedente[0]->coeficiente_formaspagos;
         $this->cmbcoeficiente_fuenteinformantes = $antecedente[0]->coeficiente_fuenteinformantes;
         $this->cmbcoeficiente_actualizaciones = $antecedente[0]->coeficiente_actualizaciones;
         $this->txtcoeficientenormalizado=$this->calcular_coeficiente($antecedente[0]);
@@ -84,20 +86,21 @@ class AntecedentesComponent extends Component
     }
 
     public function isModalAlta() {
-        $this->antecedente_id =null;
+        $this->antecedente_id = 0;
+        // $this->antecedente_id =null;
         $this->reset('txtfecha','txtdomicilio','txtprecio','txtfrente','txtfondo','txtsuperficie','txtubicaciongps','txtzonas','txtdepartamentos','cmbcoeficiente_esquinas','cmbcoeficiente_formas','cmbcoeficiente_topografias','cmbcoeficiente_pavimentoyservicios','cmbcoeficiente_ubicaciones','cmbcoeficiente_ofertas','cmbcoeficiente_formas','cmbcoeficiente_fuenteinformantes','cmbcoeficiente_actualizaciones','txtprecionormalizado','txtcoeficientenormalizado');
         $this->isModalAltashow = !$this->isModalAltashow;
         // dd($this->isModalAltashow);
     }
 
     public function Alta($id) {
-        // dd($id);
 
         if($id>0) {
             $antecedente = Antecedentes::where('id','=',$id)->get();
             $this->antecedente_id = $antecedente[0]->id;
         }
-        $this->isModalEditar = !$this->isModalEditar;
+        $this->isModalEditar = false; //!$this->isModalEditar;
+        // dd($this->isModalEditar);
 
         $this->validate([
             'txtfecha' => 'required',
@@ -112,16 +115,20 @@ class AntecedentesComponent extends Component
             'cmbcoeficiente_esquinas' => 'required',
             'cmbcoeficiente_formas' => 'required',
             'cmbcoeficiente_topografias' => 'required',
+
             'cmbcoeficiente_pavimentoyservicios' => 'required',
             'cmbcoeficiente_ubicaciones' => 'required',
             'cmbcoeficiente_ofertas' => 'required',
-            'cmbcoeficiente_formas' => 'required',
+            'cmbcoeficiente_formapagos' => 'required',
+
             'cmbcoeficiente_fuenteinformantes' => 'required',
             'cmbcoeficiente_actualizaciones' => 'required',
-            'txtprecionormalizado' => 'required',
-            'txtcoeficientenormalizado' => 'required',
-        ]);
 
+            // 'txtcoeficientenormalizado' => 'required',
+            // 'txtprecionormalizado' => 'required',coeficientenormalizado
+
+        ]);
+        // dd($this->txtprecionormalizado);
         $a = Antecedentes::updateOrCreate(['id' => $this->antecedente_id], [
             'created_at' => $this->txtfecha,
             'domicilio' => $this->txtdomicilio,
@@ -138,13 +145,16 @@ class AntecedentesComponent extends Component
             'coeficiente_pavimentoyservicios' => $this->cmbcoeficiente_pavimentoyservicios,
             'coeficiente_ubicaciones' => $this->cmbcoeficiente_ubicaciones,
             'coeficiente_ofertas' => $this->cmbcoeficiente_ofertas,
-            'coeficiente_formas' => $this->cmbcoeficiente_formapagos,
+            'coeficiente_formapagos' => $this->cmbcoeficiente_formapagos,
             'coeficiente_fuenteinformantes' => $this->cmbcoeficiente_fuenteinformantes,
             'coeficiente_actualizaciones' => $this->cmbcoeficiente_actualizaciones,
-            'coeficientenormalizado' => $this->txtprecio * $this->txtprecionormalizado,        
-            'precionormalizado' => $this->txtprecionormalizado,
+            'coeficientenormalizado' => 0,  
+            'precionormalizado' => 0, 
+            'propiedad_id' => 1, 
         ]);
-        
+        //$this->txtprecio * $this->txtprecionormalizado,        
+        // $this->txtprecionormalizado,
+
         $a->coeficientenormalizado = $this->calcular_coeficiente($a);
         $a->precionormalizado = $a->coeficientenormalizado * $a->precio;
         // dd($a->precionormalizado);

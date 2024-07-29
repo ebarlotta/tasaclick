@@ -65,7 +65,7 @@
             <!-- Modal -->
             <!-- ===== -->
 
-            <div class="modal fade" id="MostrarModalAntecedentesFijados" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
+            <div wire:ignore.self class="modal fade" id="MostrarModalAntecedentesFijados" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
                 <div class="modal-dialog modal-dialog-centered" role="document" style="width: 70%; max-width: 70%">
                     <div class="modal-content">
                         <div class="modal-header">
